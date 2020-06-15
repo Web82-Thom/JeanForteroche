@@ -1,0 +1,17 @@
+body {
+    background-image: url("../images/bienvenue.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color:#464646;
+    width: 100%;
+    color: black;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+h1 {
+    display: flex;
+    justify-content: space-around;
+}

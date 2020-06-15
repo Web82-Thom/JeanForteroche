@@ -1,9 +1,8 @@
 <?php $title = "Acceuil"; ?>
 
 
-<?php ob_start() ?>
+<?php ob_start(); ?>
 <?php include('menu.php'); ?>
-
 
 
 <?php $content = ob_get_clean(); ?>

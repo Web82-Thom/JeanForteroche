@@ -1,6 +1,6 @@
 <head>
     <title>Jean-Forteroche</title>
-        <link rel="stylesheet" href="pulic/css/styles.css" type="text/css" />
+        <link rel="stylesheet" href="public\css\style.css" type="text/css" />
         <!-- encodage des caractères du document -->
         <meta charset="utf-8" />
         <!-- utilise pour simuler un en-tete de reponse HTTP -->
