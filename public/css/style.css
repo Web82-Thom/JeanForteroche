@@ -50,3 +50,28 @@ a {
     text-decoration: none;	
     color: black;	
 }
+#contentPresentation {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    opacity: 0.6;
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    margin-top: 5%;
+    position: relative;
+}
+#photoAuthor {
+    width: 50%;
+    position: relative;
+}
+#contentPhoto {
+    display: flex;
+}
+.photoAuthor {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    margin: 10px;
+    z-index: 1;
+}
