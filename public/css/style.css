@@ -22,27 +22,27 @@ body {
 h1 {
     display: flex;
     justify-content: space-around;
-    font-size: 50px;
+    font-size: 80px;
     font-weight: bold;
     color: white;
+    margin-bottom: 0;
 }
 h2 {
     display: flex;
     justify-content: space-around;
-    font-size: 30px;
+    font-size: 40px;
     color: black;
 }
 #menuNavigation {	
     list-style-type: none;
     display: flex;
     justify-content: space-around;
-    font-size: 30px;
-    color: black;
-    border: 2px solid black;
-    width: 80%;
+    background-color: black;
+    font-size: 25px;
+    color: white;
+    width: 100%;
     margin: auto;
     padding: 0;
-    border-radius: 25px;	
 }	
 a:hover {	
     text-decoration: none;	
@@ -52,8 +52,6 @@ a {
     color: black;	
 }
 #contentPresentation {
-    border: 2px solid black;
-    border-radius: 10px;
     background-color: white;
     opacity: 0.8;
     width: 90%;
@@ -87,15 +85,73 @@ a {
     justify-content: center;
     align-items: center;
 }
+#experience h3 {
+    font-size: 35px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+}
 #experience {
-    border: 2px solid black;
-    border-radius: 10px;
     background-color: white;
     width: 100%;
     margin: 0;
     display: flex;
+    flex-direction: column;
     left: 0;
     margin-top: 2%;
     min-height: 300px;
     opacity: 0.8;
+}
+#oneLibrary {
+    width: 80%;
+    min-height: 500px;
+    margin: auto;
+    display: flex;
+    margin-bottom: 2%;
+}
+#nameBookOne {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#imgBook {
+    display: flex;
+    align-items: center;
+    
+    width: 200px;
+    height: 300px;
+    position: relative;
+}
+#imgBook img {
+    width: 100%;
+}
+#infosBookOne {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    margin-left: 50px;
+    text-align: justify;
+}
+footer {
+    background-color: black;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    margin-top: 20px;
+}
+#menuFooter {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    color: white;
+    width: 80%;
+    margin: auto;
+    padding: 0;
 }

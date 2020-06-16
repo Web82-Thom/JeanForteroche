@@ -9,6 +9,6 @@
     <body>
         
             <?= $content ?>
-        
+        <?php include("footer.php") ?>
     </body>
 </html>
