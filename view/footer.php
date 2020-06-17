@@ -1,8 +1,8 @@
 <!--FOOTER-->
 <footer>
 <ul id="menuFooter">
-    <li> <a href="#"></a> Présentation</li>
-    <li> <a href="#"></a> Billet simple</li>
-    <li> <a href="#"></a> Contact</li>
+    <li> <a href="#">Présentation</a></li>
+    <li> <a href="#">Billet simple</a></li>
+    <li> <a href="#">Contact</a></li>
 </ul>
 </footer>
