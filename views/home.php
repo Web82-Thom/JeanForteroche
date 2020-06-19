@@ -6,7 +6,7 @@
 <section id="contentPresentation">
     <div id="photoAuthor">
         <div id="contentPhoto">
-            <img src="public\images\photoAuthor.jpg" alt="JeanForteroche" class="photoAuthor" />
+            <img src="..\public\images\photoAuthor.jpg" alt="JeanForteroche" class="photoAuthor" />
         </div>
     </div>
     
@@ -27,7 +27,7 @@
     <div id="oneLibrary">
         <div id="nameBookOne">
             <div id="imgBook">
-                <img src="public\images\librairie2.jpg" alt="Billet simple pour l'Alaska">
+                <img src="..\public\images\librairie2.jpg" alt="Billet simple pour l'Alaska">
             </div>
         </div>
         <div id="infosBookOne">
