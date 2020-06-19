@@ -13,7 +13,7 @@ spl_autoload_register(function($class) {
     }
 });
 
-require_once('../views/home.php');
+require_once('../view/home.php');
 
 $router = new Router(); //instance de la classe router
 $router->requete();//lance la méthode
