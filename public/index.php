@@ -1,7 +1,7 @@
 <?php
 
-use Controller\Router;
-use Exception;
+use Model\Router;
+//use Exception;
 
 //CHARGEMENT AUTO DES CLASSES RECONSTRUCTION DU CHEMIN
 spl_autoload_register(function($class) {
@@ -9,11 +9,10 @@ spl_autoload_register(function($class) {
     if(file_exists($class)) {
         require_once($class);
     } else { 
-        throw new Exception('Page introuvable');
+        throw new \Exception($class);
     }
 });
 
-require_once('../views/home.php');
-
-$router = new Router(); //instance de la classe router
-$router->requete();//lance la méthode
+//instance de la classe $router et lance la méthode requete();
+$router = new Router(); 
+$router->requete();

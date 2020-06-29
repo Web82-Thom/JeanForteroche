@@ -1,6 +1,9 @@
 <?php
+
+namespace Model;
+
 // PERMET DE RECUPERER LES DONNEE EN PRIVER
-class Post extends Model // Post est dans les parametres de public function getPosts() dans PostManager.php
+class Post  // Post est dans les parametres de public function getPosts() dans PostManager.php
 {
     private $_id;
     private $_title;
@@ -8,7 +11,7 @@ class Post extends Model // Post est dans les parametres de public function getP
     private $_creation_date;
 
     //CONSTRUCTEUR
-    public function __construct(array $data); //en parametres $data dans Model.php new obj($data);
+    public function __construct(array $data) //en parametres $data dans Database.php new obj($data);
     {
         $this->hydrate($data);
     }
@@ -25,7 +28,7 @@ class Post extends Model // Post est dans les parametres de public function getP
             // si elle exist
             if(method_exists($this, $method))
             //on lance la methode qui appel le setter
-                $this->$method($value);
+            $this->$method($value);
         }
     }
 
@@ -52,7 +55,7 @@ class Post extends Model // Post est dans les parametres de public function getP
         $this->_creation_date = $creation_date;
     }
 
-    //GETTERS RECUPER LES DONNES
+    //GETTERS RECUPER LES DONNEES
     public function id()
     {
         return $this->_id;

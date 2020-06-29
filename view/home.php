@@ -44,6 +44,10 @@
 
 </section>
 
-<?php $content = ob_get_clean(); ?>
+<?php 
 
-<?php require('template.php'); ?>
+$content = ob_get_clean(); 
+
+require_once('template.php'); 
+
+?>
