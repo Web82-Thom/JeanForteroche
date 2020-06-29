@@ -2,17 +2,16 @@
 
 namespace Controller;
 
+use Model\PostManager;
+
 class HomeController
 {
     private $_postManager;
-    //private $_view;
 
-    public function home()
-    {
+    public function displayHome()
+    {   
         $this->_postManager = new PostManager();
-        $posts = $this->_postManager->getPosts();//permet de recuperer toutes les posts voir PostManager.php
-
-        require_once('view/singleTicket.php');
+        $posts = $this->_postManager->list();
+        require_once('../view/home.php');
     }
-
 }
