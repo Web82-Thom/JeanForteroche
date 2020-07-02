@@ -3,35 +3,13 @@
 namespace Model;
 
 // PERMET DE RECUPERER LES DONNEE EN PRIVER
-class Post  // Post est dans les parametres de public function getPosts() dans PostManager.php
+class Post  
 {
     private $_id;
     private $_title;
     private $_content;
     private $_creation_date;
-
-    //CONSTRUCTEUR
-    public function __construct(array $data) //en parametres $data dans Database.php new obj($data);
-    {
-        $this->hydrate($data);
-    }
-
-    //HYDRATATION
-    //revoie les diff setter pour mettres a jour les données sous conditions pour securité max
-    public function hydrate(array $data) 
-    {
-        //parcours les données avec le foreach
-        foreach($data as $key => $value)
-        {
-            //ucfirst pour la majuscule (on recuperer la donnée);
-            $method = 'set'.ucfirst($key);
-            // si elle exist
-            if(method_exists($this, $method))
-            //on lance la methode qui appel le setter
-            $this->$method($value);
-        }
-    }
-
+   
     //SETTER
     public function setId($id)
     {
@@ -54,7 +32,7 @@ class Post  // Post est dans les parametres de public function getPosts() dans P
     {
         $this->_creation_date = $creation_date;
     }
-
+    
     //GETTERS RECUPER LES DONNEES
     public function id()
     {
@@ -70,6 +48,7 @@ class Post  // Post est dans les parametres de public function getPosts() dans P
     }
     public function creation_date()
     {
+        var_dump($this->_creation_date);
         return $this->_creation_date;
     }
 }

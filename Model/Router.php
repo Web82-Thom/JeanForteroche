@@ -5,43 +5,40 @@ namespace Model;
 use Controller\HomeController;
 use Controller\PostController;
 
-class Router 
+class Router extends PostController
 {
+    private $_postController;
     private $_homeController;
-    //private $_view;
 
     public function requete()
     {
         try {   
-            // LE CONTROLLER EST INCLUS SELON L'ACTION DE L'UTILISATEUR
-            if (isset($_GET['objet'])) {
+            // DETERMINE L'ACTION DE L'UTILISATEUR 
+            if (isset($_GET['action'])) {
                 //$url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
-                if ('post' === $_GET['action']) {
-                    var_dump('hello');
-                   $postController = new PostController();
-
-                    // Affichage du poste
-                    if ('home' === $_GET['action']) {
-                        var_dump('affichage home === $_GET[action]');
-                        $postController->display();
-                    //affichage de la listes des postes
-                    } elseif ('list' === $_GET['action']) {
-                        var_dump('affichage list === $_GET[action]');
-                        $postController->list();
-                    }
+                //AFFICHAGE DES BILLETS
+                if ($_GET['action'] === 'post') {
+                    $postController = new PostController();
+                    //AFFICHAGE D'1 POST
+                    if (isset($_GET['id'])) {
+                        $postController->display($_GET['id']);
+                    // AFFICHAGE DE TOUS LES POST
+                    } else {
+                        $postController->displayPosts();
+                    }   
+                //REDIRECTION SUR L'INDEX.PHP
+                } elseif ($_GET['action'] === 'home') {
+                    header ("Location: index.php");
                 }
-                //PAGE D'ACCUEIL    
+            //SI L'UTILISATEUR FAIT RIEN "PAGE D'ACCUEIL"
             } else {
-                var_dump('ole');
                 $homeController = new HomeController();
-                $homeController->displayHome();
+                $homeController->displayhome();
             }
-
-        }
         //GESTION DES ERREURS
-        catch(Exception $e) {
+        } catch(Exception $e) {
             $errorMsg = $e->getMessage();
-            require_once('views/Error.php');
+            require_once('../views/viewError.php');
         }
     }
 }

@@ -1,8 +1,7 @@
-<?php $title = "Acceuil"; ?>
-
+<?php $title = "Accueil"; ?>
 
 <?php ob_start(); ?>
-<?php include('menu.php'); ?>
+
 <section id="contentPresentation">
     <div id="photoAuthor">
         <div id="contentPhoto">
