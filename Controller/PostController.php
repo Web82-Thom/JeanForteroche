@@ -8,39 +8,24 @@ class PostController
 {
     private $_postManager;
     //private $_view;
-
-    public function display()
+    // RECUPERATION D'UN POST
+    public function display($postId)
     {
-        try {
-            if (isset($_GET['action'])) {
-                if ($_GET['objet'] == 'home') {
-                    var_dump('($_GET['"action"'] == home) de display();');
-                    display();
-                }d
-                elseif ($_GET['action'] == 'post') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        list();
-                    }
-                    else {
-                        throw new Exception('Aucun identifiant de billet envoyé');
-                    }
-                }
-            }
-            else {
-                display();
-            }
-        }
-        catch(Exception $e) {
-            echo 'Erreur : ' . $e->getMessage();
-        }
+        $this->_postManager = new PostManager();
+
+        $post = $this->_postManager->getPost($postId);
+
+        require_once('../view/displayPost.php');
+    }
+    // RECUPERATION DE TOUS LES POSTS
+    public function displayPosts()
+    {   
+        $this->_postManager = new PostManager();
+
+        $posts = $this->_postManager->getPosts();
+
+        require_once('../view/displayPosts.php');
     }
 
-    public function list()
-    {   var_dump('list');
-        $postManager = new PostManager();
-        $posts = $postManager->list();
-        
-        include('../view/singleTicket.php');
-    }
 }
 
