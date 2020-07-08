@@ -197,3 +197,15 @@ footer {
 .link {
     color: black;
 }
+/*
+*
+*       formAddPost.php
+*
+*/
+#form {
+    width: 80%;
+}
+#mytextarea {
+    width: 80%;
+    height: 200px;
+}
