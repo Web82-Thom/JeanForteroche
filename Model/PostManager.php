@@ -58,4 +58,12 @@ class PostManager extends Database
         $lastId = $this->getDataBase()->lastInsertId();
         return $lastId;
     }
+    // METHODE DE SUPPRESSION D'UN POST
+    public function delete($postId)
+    {   
+        var_dump('ok');
+        $req = $this->getDataBase()->prepare('DELETE FROM posts WHERE id= ?');
+        return $req->execute(array($postId));
+        echo ('post supprimer');
+    }
 }

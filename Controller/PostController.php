@@ -16,6 +16,7 @@ class PostController
         $post = $this->_postManager->getPost($postId);
 
         require_once('../view/displayPost.php');
+        require_once('../view/admin.php');
     }
     // RECUPERATION DE TOUS LES POSTS
     public function displayPosts()
@@ -25,6 +26,7 @@ class PostController
         $posts = $this->_postManager->getPosts();
 
         require_once('../view/displayPosts.php');
+        require_once('../view/admin.php');
     }
     // AJOUT D'UN POST
     public function add()
@@ -40,6 +42,15 @@ class PostController
             throw new Exception('Impossible d\'ajouter le commentaire !');
         } else {
             require_once('../view/formAddPost.php');
-        }
+        } 
+    }
+    // SUPPRESSION D'UN POST
+    public function delete($postId)
+    {
+        $this->_postManager = new PostManager();
+
+        $posts = $this->_postManager->delete($postId);
+        header('Location: index.php?objet=admin');
+        
     }
 }

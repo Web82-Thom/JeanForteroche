@@ -6,7 +6,7 @@
 <div class="contentPosts">
 <h3 class="titleTicket"><?= htmlspecialchars($post->title()); ?> publié le <?= $post->creation_date();?></h3>
     <div id="post">
-        <p class="postText"><?= $post->content();?></p>
+        <p class="postText"><?= htmlspecialchars($post->content());?></p>
         <p class="linkComment"><em><a class="link" href="../view/comment.php">Commentaires</a></em></p>
     </div>  
 </div>    
