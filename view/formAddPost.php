@@ -6,9 +6,9 @@
     <div id ="form">
         <form method="post" action="index.php?objet=post&action=add">
             <p><label for="textarea" >Rédaction :</label></p>
-            <p><input type="text" placeholder="Titre" name ="title" ></p>
-            <p><textarea id="mytextarea" placeholder ="Contenu" name ="content"></textarea></p>
-            <p><input type="submit" value ="Poster"></p>
+            <p><input type="text" placeholder="Titre" name ="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>></p>
+            <p><textarea id="mytextarea" placeholder ="Contenu" name ="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea></p>
+            <p><input type="submit" value ="Envoyer un nouveau post!"></p>
         </form>
     </div>
 
