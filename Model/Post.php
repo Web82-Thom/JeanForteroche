@@ -28,27 +28,26 @@ class Post
         if(is_string($content))
             $this->_content = $content;
     }
-    public function setCreationDate($creation_date)
+    public function setCreation_date($creation_date)
     {
         $this->_creation_date = $creation_date;
     }
     
     //GETTERS RECUPER LES DONNEES
-    public function id()
+    public function getId()
     {
         return $this->_id;
     }
-    public function title()
+    public function getTitle()
     {
         return $this->_title;
     }
-    public function content()
+    public function getContent()
     {
         return $this->_content;
     }
-    public function creation_date()
+    public function getCreation_date()
     {
-        var_dump($this->_creation_date);
         return $this->_creation_date;
     }
 }
