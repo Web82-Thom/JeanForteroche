@@ -25,12 +25,21 @@ class CommentManager extends Database
         return $comment;
     }
 
+    // RECUPERATION DES COMMENTAIRES
     public function getComments($postId)
     {
-        var_dump($postId);
         $comments = $this->getDataBase()->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
         
         return $comments;
+    }
+
+    // AJOUT DES COMMENTAIRES
+    public function addComment($postId, $author, $comment)
+    {
+        $addComment = $this->getDataBase()->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
+        $addComment->execute(array($postId, $_POST['author'], $_POST['comment']));
+
+        return $addComment;
     }
 }

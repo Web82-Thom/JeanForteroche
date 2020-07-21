@@ -211,6 +211,22 @@ footer {
     margin-bottom: 20px;
     background-color: white;
 }
+#formAddComment {
+    width: 70%;
+    margin: auto;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    background-color: rgb(138, 135, 135);
+}
+#formTitle {
+    margin: auto;
+    text-align: center;
+}
+#formContent {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 #commentAuthor {
     padding-left: 5%;
     background-color: seagreen;
@@ -218,6 +234,10 @@ footer {
 }
 #commentContent {
     padding-left: 5%;
+}
+#comment {
+    width: 80%;
+    height: 90px;
 }
 /*
 *

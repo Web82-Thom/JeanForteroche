@@ -11,7 +11,26 @@
         </div>
     
         
-</div>   
+</div> 
+
+<div id="formAddComment">
+    <h3 id="formTitle">Ajouter votre commentaires</h3>
+
+    <form id="formContent" method="post" action="index.php?objet=post&action=addComment&id=<?= $postId ?>">
+        <div>
+            <label for="author">Auteur</label><br />
+            <input type="text" id="author" name="author" />
+        </div>
+        <div>
+            <label for="comment">Commentaire</label><br />
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </form>
+</div>
+
 <?php
 while ($comments = $comment->fetch())
 { ?>

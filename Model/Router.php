@@ -31,6 +31,9 @@ class Router extends PostController
                         // AFFICHAGE AVANT suppression 
                         } elseif ($_GET['action'] === 'delete' && isset($_GET['id'])) { 
                             $postController->delete($_GET['id']);
+                        // AJOUT DE COMMENTAIRE
+                        } elseif ($_GET['action'] === 'addComment' && isset($_GET['id'])) {
+                            $postController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                         }
                     //AFFICHAGE D'1 POST
                     } elseif (isset($_GET['id'])) {

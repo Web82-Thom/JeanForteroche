@@ -76,5 +76,20 @@ class PostController
             require_once('../view/formDeletePost.php');;
         }
     }
+
+    // AJOUT D'UN COMMENTAIRE
+    public function addComment($postId)
+    {
+        //$comment = $this->_commentManager->addComment($postId);
+        //header('Location: index.php?action=post&id=' . $postId);
+        $addComment = $this->_commentManager->addComment($postId, $author, $comment);
+
+        if ($addComment === false) {
+            throw new Exception('Impossible d\'ajouter le commentaire !');
+        }
+        else {
+            header('Location: index.php?objet=post&id=' . $postId);
+        }
+    }
 }            
   
