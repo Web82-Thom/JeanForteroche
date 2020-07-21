@@ -9,6 +9,7 @@ use Controller\PostController;
 class Router extends PostController
 {
     private $_postController;
+    private $_commentController;
     private $_homeController;
 
     public function requete()
@@ -24,18 +25,12 @@ class Router extends PostController
                         // AJOUT D'UN POST
                         if ($_GET['action'] === 'add') {
                             $postController->add();
-                        // affichage avant modif D'UN POST
+                        // AFFICHAGE AVANT MODIF D'UN POST
                         } elseif ($_GET['action'] === 'update' && isset($_GET['id'])) { 
                             $postController->update($_GET['id']);
-                        // modification d'un post
-                        } elseif ($_GET['action'] === 'updated' && isset($_GET['id'])) { 
-                        $postController->updated($_GET['id'], $_POST['title'], $_POST['content']);
-                        // affichage avant suppression
+                        // AFFICHAGE AVANT suppression 
                         } elseif ($_GET['action'] === 'delete' && isset($_GET['id'])) { 
                             $postController->delete($_GET['id']);
-                        // confirmation de suppression
-                        } elseif ($_GET['action'] === 'deleted' && isset($_GET['id'])) { 
-                            $postController->deleted($_GET['id']);
                         }
                     //AFFICHAGE D'1 POST
                     } elseif (isset($_GET['id'])) {
