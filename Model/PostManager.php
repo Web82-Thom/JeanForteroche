@@ -63,9 +63,10 @@ class PostManager extends Database
     }
 
     // METHODE DE MODIFICATION D'UN POST
-    public function updated($postId, $title, $content)
+    public function update($postId, $title, $content)
     {
         $req = $this->getDataBase()->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ? LIMIT 1');
+
         return $req->execute(array($title, $content, $postId));
     }   
      
@@ -73,6 +74,7 @@ class PostManager extends Database
     public function delete($postId)
     {   
         $req = $this->getDataBase()->prepare('DELETE FROM posts WHERE id = ?');
+
         return $req->execute(array($postId));
     }
 }
