@@ -5,6 +5,7 @@ namespace Model;
 use Controller\AdminController;
 use Controller\HomeController;
 use Controller\PostController;
+use Controller\CommentController;
 
 class Router extends PostController
 {
@@ -33,7 +34,8 @@ class Router extends PostController
                             $postController->delete($_GET['id']);
                         // AJOUT DE COMMENTAIRE
                         } elseif ($_GET['action'] === 'addComment' && isset($_GET['id'])) {
-                            $postController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                            $commentController = new CommentController();
+                            $commentController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                         }
                     //AFFICHAGE D'1 POST
                     } elseif (isset($_GET['id'])) {
