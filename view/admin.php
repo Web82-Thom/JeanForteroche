@@ -9,14 +9,26 @@
             <ul>
                 <li><a class="adminLink" href="index.php?objet=post&action=add">Ajouter un chapitre</a></li><br>
             </ul>
+
         <h4>Modifier ou suprimer un chapitre</h4>
         <?php foreach ($posts as $post) { ?>
             <ul>
-                <li><?= (htmlspecialchars($post->getTitle()));?><br/>
+                <li><?= (htmlspecialchars($post->getTitle())); ?><br/>
                 <a class="adminLink" href="index.php?objet=post&action=update&id=<?= $post->getId(); ?>">Modifier</a><br/>
                 <a class="adminLink" href="index.php?objet=post&action=delete&id=<?= $post->getId(); ?>">Supprimer</a></li>
             </ul>
         <?php } ?>
+
+        <h4>Tous les commentaires</h4>
+        <?php foreach ($comments as $comment) { ?>
+            <ul>
+                <li><p>Autheur : <?= $comment->getAuthor(); ?></p>
+                    <p>Contenu : <?= $comment->getComment(); ?></p>
+                    <a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a>               
+                </li>
+            </ul>
+        <?php } ?>
+
     </div>
 <?php
 $content = ob_get_clean(); 
