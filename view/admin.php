@@ -22,7 +22,7 @@
         <h4>Tous les commentaires</h4>
         <?php foreach ($comments as $comment) { ?>
             <ul>
-                <li><p>Autheur : <?= $comment->getAuthor(); ?></p>
+                <li><p>Auteur : <?= $comment->getAuthor(); ?></p>
                     <p>Contenu : <?= $comment->getComment(); ?></p>
                     <a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a>               
                 </li>
