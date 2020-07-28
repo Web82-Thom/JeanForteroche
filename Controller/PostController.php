@@ -20,7 +20,7 @@ class PostController
     public function display($postId)
     {
         $post = $this->_postManager->getPost($postId);
-        $comment = $this->_commentManager->getComment($postId);
+        $comments = $this->_commentManager->getCommentsByPostId($postId);
 
         require_once('../view/displayPost.php');
     }
@@ -38,14 +38,15 @@ class PostController
     {   
         if (!empty($_POST['title']) && !empty($_POST['content'])) {
             $postId = $this->_postManager->add($_POST['title'], $_POST['content']);
-            //si postId est un nombre alors redirection sur l'affichage du post ajouter
             if ($postId > 0) {
                 header('Location: index.php?objet=post&id=' . $postId);
             }
+
             throw new Exception('Impossible d\'ajouter le post !');
-        } else {
-            require_once('../view/formAddPost.php');
         } 
+                
+        // affichage du formulaire ajout
+        require_once('../view/formAddPost.php');
     }
 
     // AFFICHAGE et MODIFICATION
@@ -56,11 +57,11 @@ class PostController
             $this->_postManager->update($postId, $_POST['title'], $_POST['content']);
 
             header('Location: index.php?objet=post&id=' . $postId);
+        } 
+
         // affichage du formulaire modification
-        } else {
-            $post = $this->_postManager->getPost($postId);
-            require_once('../view/formUpdatePost.php');;
-        }
+        $post = $this->_postManager->getPost($postId);
+        require_once('../view/formUpdatePost.php');;
     }
 
     // AFFICHAGE et SUPPRESSION
@@ -71,11 +72,11 @@ class PostController
             $this->_postManager->delete($postId);
 
             header('Location: index.php?objet=admin');
-        // affichage du formulaire modification
-        } else {
-            $post = $this->_postManager->getPost($postId);
-            require_once('../view/formDeletePost.php');
         }
+
+        // affichage du formulaire modification
+        $post = $this->_postManager->getPost($postId);
+        require_once('../view/formDeletePost.php');
     }
 }            
   
