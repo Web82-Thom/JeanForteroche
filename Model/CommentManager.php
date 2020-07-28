@@ -10,7 +10,7 @@ class CommentManager extends Database
 {
     public function hydrate(array $data) 
     {
-        $comment = new comment();
+        $comment = new Comment();
         //parcours les données avec le foreach
         foreach($data as $key => $value)
         {
@@ -21,25 +21,63 @@ class CommentManager extends Database
             //on lance la methode qui appel le setter
             $comment->$method($value);
         }
-
+        
         return $comment;
     }
 
-    // RECUPERATION DES COMMENTAIRES
-    public function getComments($postId)
+    // RECUPERATION D'UN COMMENTAIRE
+    public function getComment($commentId)
     {
-        $comments = $this->getDataBase()->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-        $comments->execute(array($postId));
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin\') AS commentDate FROM comments WHERE id = ? ORDER BY commentDate DESC');
+        $req->execute(array($commentId));
+        $data = $req->fetch(PDO::FETCH_ASSOC); 
+        $req->closeCursor();
+
+        return $this->hydrate($data);
+    }
+
+    //RECUPERATION LES COMMENTAIRES
+    public function getComments()
+    {
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em>à %Hh%imin\') AS commentDate FROM comments ORDER BY commentDate DESC /*LIMIT 5*/ ');
+        $req->execute();
+        $comments = [];
+        while($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = $this->hydrate($data);
+        }
+        $req->closeCursor();
+        
+        return $comments;
+    }
+
+    //RECUPERATION LES COMMENTAIRES par le postId
+    public function getCommentsByPostId($postId)
+    {
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS commentDate FROM comments WHERE post_id = ? ORDER BY commentDate DESC /*LIMIT 5*/ ');
+        $req->execute(array($postId));
+        $comments = [];
+        while($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = $this->hydrate($data);
+        }
+        $req->closeCursor();
         
         return $comments;
     }
 
     // AJOUT DES COMMENTAIRES
-    public function addComment($postId, $author, $comment)
+    public function add($postId, $author, $comment)
     {
-        $addComment = $this->getDataBase()->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-        $addComment->execute(array($postId, $_POST['author'], $_POST['comment']));
+        $add = $this->getDataBase()->prepare('INSERT INTO comments(post_id, author, comment, commentDate) VALUES(?, ?, ?, NOW())');
+        $add->execute(array($postId, $_POST['author'], $_POST['comment']));
 
-        return $addComment;
+        return $add;
+    }
+
+    // SUPPRESSION DES COMMENTAIRES
+    public function delete($commentId)
+    {
+        $req = $this->getDataBase()->prepare('DELETE FROM comments WHERE id= ?');
+        
+        return $req->execute(array($commentId));
     }
 }
