@@ -8,7 +8,7 @@ class Post
     private $_id;
     private $_title;
     private $_content;
-    private $_creation_date;
+    private $_creationDate;
    
     //SETTER
     public function setId($id)
@@ -28,9 +28,9 @@ class Post
         if(is_string($content))
             $this->_content = $content;
     }
-    public function setCreation_date($creation_date)
+    public function setCreationDate($creationDate)
     {
-        $this->_creation_date = $creation_date;
+        $this->_creationDate = $creationDate;
     }
     
     //GETTERS RECUPER LES DONNEES
@@ -46,8 +46,8 @@ class Post
     {
         return $this->_content;
     }
-    public function getCreation_date()
+    public function getCreationDate()
     {
-        return $this->_creation_date;
+        return $this->_creationDate;
     }
 }

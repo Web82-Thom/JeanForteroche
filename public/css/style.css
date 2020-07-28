@@ -222,6 +222,9 @@ footer {
     margin: auto;
     text-align: center;
 }
+.dateInfos {
+    margin-left: 10px;
+}
 #formContent {
     text-align: center;
     margin-top: 10px;
@@ -238,6 +241,10 @@ footer {
 #comment {
     width: 80%;
     height: 90px;
+}
+#linkDeleteComment {
+    color: black;
+    margin-left : 10px;
 }
 /*
 *
