@@ -1,11 +1,10 @@
-<?php $title = "Admin-Modification"; ?>
+<?php  $title = "Admin-Suppression"; ?>
 
 <?php ob_start(); ?>
 
-<h3>TinyMCE traitement des Chapitres et envoie du fichier</h3>
+<h3>Suppression des Chapitres</h3>
     <div id ="form">
         <form method="post" action="index.php?objet=post&action=delete&id=<?= $post->getId();?>">
-            <p>Suppression :</p>
             <p>
                 <label for="title">Titre</label>
                 <input type="text" placeholder="Titre" id="title" name="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>>
