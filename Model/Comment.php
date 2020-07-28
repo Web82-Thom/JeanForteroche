@@ -8,7 +8,7 @@ class Comment
     private $_id;
     private $_author;
     private $_comment;
-    private $_comment_date;
+    private $_commentDate;
    
     //SETTER
     public function setId($id)
@@ -31,9 +31,9 @@ class Comment
             $this->_comment = $comment;
     }
 
-    public function setCreation_date($comment_date)
+    public function setCommentDate($commentDate)
     {
-        $this->_comment_date = $comment_date;
+        $this->_commentDate = $commentDate;
     }
     
     //GETTERS RECUPER LES DONNEES
@@ -52,8 +52,8 @@ class Comment
         return $this->_comment;
     }
 
-    public function getComment_date()
+    public function getCommentDate()
     {
-        return $this->_comment_date;
+        return $this->_commentDate;
     }
 }
