@@ -35,7 +35,7 @@
 <?php while ($comments = $comment->fetch()) { ?>
     <div id="commentDisplay">
         <p id="commentAuthor"><strong><?= htmlspecialchars($comments['author']) ?></strong> le <?= $comments['comment_date'] ?></p>
-        <p id="commentContent"><?= nl2br(htmlspecialchars($comments['comment'])) ?></p>
+        <p id="commentContent"><?= htmlspecialchars($comments['comment']) ?></p>
     </div>
 <?php } ?>
        
