@@ -4,7 +4,8 @@
 <h2 id="titleListTicket"><?= htmlspecialchars($post->getTitle()); ?></h2>
 
 <div class="contentPosts">
-    <h3 class="titleTicket"><?= htmlspecialchars($post->getTitle()); ?> publié le <?= $post->getCreation_date();?></h3>
+    <h3 class="titleTicket"><?= htmlspecialchars($post->getTitle()); ?></h3>
+    <em class="dateInfos">publié le <?= $post->getCreationDate();?></em> 
         <div id="post">
             <p class="postText"><?= htmlspecialchars($post->getContent());?></p>
         
@@ -32,10 +33,11 @@
 </div>
 
 
-<?php while ($comments = $comment->fetch()) { ?>
+<?php foreach ($comments as $comment) { ?>
     <div id="commentDisplay">
-        <p id="commentAuthor"><strong><?= htmlspecialchars($comments['author']) ?></strong> le <?= $comments['comment_date'] ?></p>
-        <p id="commentContent"><?= htmlspecialchars($comments['comment']) ?></p>
+        <p id="commentAuthor"><strong><?= htmlspecialchars($comment->getAuthor()); ?></strong></p>
+        <em class="dateInfos">publié le <?= $comment->getCommentDate(); ?></em>
+        <p id="commentContent"><?= htmlspecialchars($comment->getComment()); ?></p>
     </div>
 <?php } ?>
        
