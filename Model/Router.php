@@ -22,6 +22,7 @@ class Router extends PostController
                 //AFFICHAGE DES BILLETS
                 if ($_GET['objet'] === 'post') {
                     $postController = new PostController();
+                    $commentController = new CommentController();
                     if (isset($_GET['action'])) {
                         // AJOUT D'UN POST
                         if ($_GET['action'] === 'add') {
@@ -34,8 +35,10 @@ class Router extends PostController
                             $postController->delete($_GET['id']);
                         // AJOUT DE COMMENTAIRE
                         } elseif ($_GET['action'] === 'addComment' && isset($_GET['id'])) {
-                            $commentController = new CommentController();
-                            $commentController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                            $commentController->add($_GET['id'], $_POST['author'], $_POST['comment']);
+                        // AFFICHAGE AVANT SUPRESSION D'UN COMMENTAIRE
+                        } elseif ($_GET['action'] === 'deleteComment' && isset($_GET['id'])) {
+                            $commentController->delete($_GET['id']);
                         }
                     //AFFICHAGE D'1 POST
                     } elseif (isset($_GET['id'])) {
