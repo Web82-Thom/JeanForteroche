@@ -20,7 +20,8 @@ class PostController
     public function display($postId)
     {
         $post = $this->_postManager->getPost($postId);
-        $comment = $this->_commentManager->getComments($postId);
+        $comment = $this->_commentManager->getComment($postId);
+
         require_once('../view/displayPost.php');
     }
 
@@ -73,7 +74,7 @@ class PostController
         // affichage du formulaire modification
         } else {
             $post = $this->_postManager->getPost($postId);
-            require_once('../view/formDeletePost.php');;
+            require_once('../view/formDeletePost.php');
         }
     }
 }            
