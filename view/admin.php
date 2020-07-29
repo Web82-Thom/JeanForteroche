@@ -24,7 +24,9 @@
             <ul>
                 <li><p>Auteur : <?= $comment->getAuthor(); ?></p>
                     <p>Contenu : <?= $comment->getComment(); ?></p>
-                    <a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a>               
+                    <a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a>  
+                    <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a>
+
                 </li>
             </ul>
         <?php } ?>
