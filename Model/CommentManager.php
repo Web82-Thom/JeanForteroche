@@ -80,4 +80,12 @@ class CommentManager extends Database
         
         return $req->execute(array($commentId));
     }
+
+    // MODIFICATION DES COMMENTAIRES
+    public function update($postId, $author, $comment)
+    {
+        $req = $this->getdataBase()->prepare('UPDATE comments SET author = ?, comment = ?, commentDate = NOW() WHERE id = ? LIMIT 1');
+
+        return $req->execute(array($author, $comment, $postId));
+    }
 }
