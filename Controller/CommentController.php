@@ -47,4 +47,22 @@ class CommentController
         $comment= $this->_commentManager->getComment($commentId);
         require_once('../view/formDeleteComment.php');
     }
+
+    // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE REDIRECTION SUR PAGE ADMIN
+    public function update($commentId)
+    {
+        //traitement du formulaire
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+            $this->_commentManager->update($commentId, $_POST['author'], $_POST['comment']);
+            if ($commentId > 0) {
+                header('Location: index.php?objet=admin');
+            }
+
+            throw new Exception('Impossible de modifier le commentaire !');
+
+        } 
+        // affichage du formulaire pour la modification
+        $comment= $this->_commentManager->getComment($commentId);
+        require_once('../view/formUpdateComment.php');
+    }
 }
