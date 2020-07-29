@@ -38,6 +38,7 @@
         <p id="commentAuthor"><strong><?= htmlspecialchars($comment->getAuthor()); ?></strong></p>
         <em class="dateInfos">publié le <?= $comment->getCommentDate(); ?></em>
         <p id="commentContent"><?= htmlspecialchars($comment->getComment()); ?></p>
+        <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a>
     </div>
 <?php } ?>
        
