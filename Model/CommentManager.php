@@ -50,7 +50,7 @@ class CommentManager extends Database
         return $comments;
     }
 
-    //RECUPERATION LES COMMENTAIRES par le postId
+    //RECUPERATION DES COMMENTAIRES PAR LE POST ID
     public function getCommentsByPostId($postId)
     {
         $req = $this->getDataBase()->prepare('SELECT id, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS commentDate FROM comments WHERE post_id = ? ORDER BY commentDate DESC /*LIMIT 5*/ ');

@@ -1,4 +1,4 @@
-<?php $title = "Billets à lire"; ?>
+<?php $title = htmlspecialchars($post->getTitle()); ?>
 
 <?php ob_start(); ?>
 <h2 id="titleListTicket"><?= htmlspecialchars($post->getTitle()); ?></h2>
@@ -38,7 +38,7 @@
         <p id="commentAuthor"><strong><?= htmlspecialchars($comment->getAuthor()); ?></strong></p>
         <em class="dateInfos">publié le <?= $comment->getCommentDate(); ?></em>
         <p id="commentContent"><?= htmlspecialchars($comment->getComment()); ?></p>
-        <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a>
+        <a class="adminLink" href="index.php?objet=post&action=updateforUser&id=<?= $comment->getId(); ?>">Modifier</a><br />
     </div>
 <?php } ?>
        

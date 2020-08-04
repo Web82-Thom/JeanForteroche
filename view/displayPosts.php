@@ -10,7 +10,7 @@
         <div id="post">
             <p class="postText"><?= $post->getContent();?></p>
         </div>  
-    </div>    
+    </div> 
 <?php } ?>
 
 <?php 
