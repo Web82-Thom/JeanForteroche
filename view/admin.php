@@ -1,10 +1,25 @@
+<?php session_start(); 
+$id_session = session_id(); 
+foreach ($admins as $admin) { 
+    $_SESSION['pseudo'] = htmlspecialchars($admin->getPseudo());
+  } ?>
 <?php $title = "Admin"; ?>
 
 <?php ob_start(); ?>
-
+    
     <div class="adminPage">
         <h3 id="titleAdmin">Administrateur</h3>
-        <p class="welcomeAdmin">Bonjour Mr Forteroche, cette page vous est consacrée pour gerer votre site.</p>
+        <p class="welcomeAdmin">Bonjour Mr <?=  htmlspecialchars($admin->getPseudo()); ?>, cette page vous est consacrée pour gerer votre site.</p>
+        
+        <h4>Administrateur autoriser</h4>
+        <?php foreach ($admins as $admin) { ?>
+            <ul>
+                <li> Pseudo : <?= htmlspecialchars($admin->getPseudo());?> </li>
+                <li> Email : <?= htmlspecialchars($admin->getEmail());?> </li>
+                <li> Controle Total : <?= htmlspecialchars($admin->getFirstAdmin());?> </li>
+            </ul>
+        <?php } ?>
+        
         <h4>Creation d'un chapitre</h4>
             <ul>
                 <li><a class="adminLink" href="index.php?objet=post&action=add">Ajouter un chapitre</a></li><br>
@@ -26,7 +41,11 @@
                     <p>Contenu : <?= $comment->getComment(); ?></p>
                     <a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a>  
                     <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a>
+                    if () { 
+                        <p>Commentaire signaler</p>
 
+                    }
+                   
                 </li>
             </ul>
         <?php } ?>
