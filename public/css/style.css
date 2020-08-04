@@ -281,3 +281,23 @@ footer {
 .adminLink {
     color: green;
 }
+/**
+*
+*   adminLogin.php
+*
+*/
+#formConnection {
+    width: 70%;
+    margin: auto;
+    border: 2px solid black;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+}
+#formConnectionContent {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
