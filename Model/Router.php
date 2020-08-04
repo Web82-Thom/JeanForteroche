@@ -42,18 +42,18 @@ class Router extends PostController
                         // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE
                         } elseif ($_GET['action'] === 'updateComment' && isset($_GET['id'])) {
                             $commentController->update($_GET['id']);
-                        }
+                        } 
                     //AFFICHAGE D'1 POST
                     } elseif (isset($_GET['id'])) {
                         $postController->display($_GET['id']);
                     // AFFICHAGE DE TOUS LES POST
                     } else {
-                    $postController->displayPosts();
+                        $postController->displayPosts();
                     }
                 //REDIRECTION SUR L'ADMIN
                 } elseif ($_GET['objet'] === 'admin') {
                     $adminController = new AdminController();
-                    $adminController->display();
+                    $adminController->login();
                 //REDIRECTION SUR L'INDEX.PHP
                 } elseif (isset($_GET['objet']) && ($_GET['objet'] === 'home')) {
                     header ("Location: index.php");
