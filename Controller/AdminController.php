@@ -19,24 +19,25 @@ class AdminController
         $admins = $this->_adminManager->getAdmins();
         require_once('../view/admin.php');
     }
+    
     // TRAITEMENT DU LOGIN
     public function login()
     {   $this->_adminManager = new adminManager(); 
-            //si le mail et le pass sont remplie
-            if (!empty($_POST['email']) && !empty($_POST['password'])) { 
-                //si sa existe dans la admins[] 1ligne de la table
-                $admins = $this->_adminManager->getAdmins();
-                foreach ($admins as $admin) {
-                    //si le mail et la pass sont existant
-                    if ($_POST['email'] == $admin->getEmail() && $_POST['password'] == $admin->getPass()) {
-                        $this->_adminController = new AdminController();
-                        $connect = $this->_adminController->display();
-                        require_once('../view/admin.php');
-                    } 
-                };
-            }
-            //affichage de la page connection
+        if (!empty($_POST['email']) && !empty($_POST['password'])) { 
             $admins = $this->_adminManager->getAdmins();
-            require_once('../view/adminLogin.php');
+            foreach ($admins as $admin) {
+                if ($_POST['email'] == $admin->getEmail() && $_POST['password'] == $admin->getPass()) {
+                    $_SESSION['pseudo'] = $admin->getPseudo();
+                    $this->_adminController = new AdminController();
+                    $connect = $this->_adminController->display();
+
+                    require_once('../view/admin.php');
+                } 
+            };
+        }
+        //affichage de la page connection
+        $admins = $this->_adminManager->getAdmins();
+
+        require_once('../view/adminLogin.php');
     }
 }
