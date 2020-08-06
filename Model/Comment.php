@@ -9,6 +9,7 @@ class Comment
     private $_author;
     private $_comment;
     private $_commentDate;
+    private $_report;
    
     //SETTER
     public function setId($id)
@@ -35,6 +36,14 @@ class Comment
     {
         $this->_commentDate = $commentDate;
     }
+
+    public function setReport($report)
+    {
+        $report = (int) $report;
+
+        if($report >= 0)
+            $this->_report = $report;
+    }
     
     //GETTERS RECUPER LES DONNEES
     public function getId()
@@ -55,5 +64,10 @@ class Comment
     public function getCommentDate()
     {
         return $this->_commentDate;
+    }
+
+    public function getReport()
+    {
+        return $this->_report;
     }
 }
