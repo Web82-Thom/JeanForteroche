@@ -1,17 +1,12 @@
-<?php session_start(); 
-$id_session = session_id(); 
-foreach ($admins as $admin) { 
-    $_SESSION['pseudo'] = htmlspecialchars($admin->getPseudo());
-  } ?>
-<?php $title = "Admin"; ?>
+<?php $title = "Page Administrateur"; ?>
 
 <?php ob_start(); ?>
     
     <div class="adminPage">
         <h3 id="titleAdmin">Administrateur</h3>
-        <p class="welcomeAdmin">Bonjour Mr <?=  htmlspecialchars($admin->getPseudo()); ?>, cette page vous est consacrée pour gerer votre site.</p>
+        <p class="welcomeAdmin">Bonjour Mr <?=  $_SESSION['pseudo']; ?>, cette page vous est consacrée pour gerer votre site.</p>
         
-        <h4>Administrateur autoriser</h4>
+        <h3>Administrateur autoriser</h3>
         <?php foreach ($admins as $admin) { ?>
             <ul>
                 <li> Pseudo : <?= htmlspecialchars($admin->getPseudo());?> </li>
@@ -20,12 +15,12 @@ foreach ($admins as $admin) {
             </ul>
         <?php } ?>
         
-        <h4>Creation d'un chapitre</h4>
+        <h3>Creation d'un chapitre</h3>
             <ul>
                 <li><a class="adminLink" href="index.php?objet=post&action=add">Ajouter un chapitre</a></li><br>
             </ul>
 
-        <h4>Modifier ou suprimer un chapitre</h4>
+        <h3>Modifier ou suprimer un chapitre</h3>
         <?php foreach ($posts as $post) { ?>
             <ul>
                 <li><?= (htmlspecialchars($post->getTitle())); ?><br/>
@@ -34,23 +29,19 @@ foreach ($admins as $admin) {
             </ul>
         <?php } ?>
 
-        <h4>Tous les commentaires</h4>
+        <h3>Tous les commentaires</h3>
         <?php foreach ($comments as $comment) { ?>
-            <ul>
-                <li><p>Auteur : <?= $comment->getAuthor(); ?></p>
-                    <p>Contenu : <?= $comment->getComment(); ?></p>
-                    <a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a>  
-                    <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a>
-                    if () { 
-                        <p>Commentaire signaler</p>
-
-                    }
-                   
+            <h4>Auteur : <?= $comment->getAuthor(); ?></h4>
+                <li id="listComments">
+                    <ul><p>Contenu : <?= $comment->getComment(); ?></p></ul>
+                    <ul><a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a></ul>  
+                    <ul><a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a></ul>
+                    <ul><p id="reportSignal"><?php if ($comment->getreport() == 1) { echo 'Commentaire signaler'; } ?> </p></ul>
+                    <ul><a class="adminLink" href="index.php?objet=post&action=unReportComment&id=<?= $comment->getId(); ?>" onclick="window.location.reload(false)"><?php if ($comment->getreport() == 1) { echo 'aprouver'; } ?></a></ul>
                 </li>
-            </ul>
         <?php } ?>
-
     </div>
+    
 <?php
 $content = ob_get_clean(); 
 
