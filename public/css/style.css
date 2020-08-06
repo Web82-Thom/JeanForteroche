@@ -301,3 +301,9 @@ footer {
     width: 80%;
     margin: auto;
 }
+#reportSignal {
+    color:red;
+}
+#listComments {
+    list-style-type: none;
+}
