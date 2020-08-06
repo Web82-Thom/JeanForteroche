@@ -41,10 +41,10 @@ class CommentController
             }
 
             throw new Exception('Impossible de supprimer le commentaire !');
-        
         } 
         // affichage du formulaire pour la suppression
         $comment= $this->_commentManager->getComment($commentId);
+
         require_once('../view/formDeleteComment.php');
     }
 
@@ -59,10 +59,43 @@ class CommentController
             }
 
             throw new Exception('Impossible de modifier le commentaire !');
-
         } 
         // affichage du formulaire pour la modification
         $comment= $this->_commentManager->getComment($commentId);
         require_once('../view/formUpdateComment.php');
+    }
+
+    // SIGNALER UN COMMENTAIRE
+    public function report($commentId, $postId)
+    {  
+        $comments = $this->_commentManager->getComment($commentId);
+
+        foreach ($comments as $comment) {
+            $report = $comment->getReport($commentId);
+            if ($report == 0) {
+                $this->_commentManager->report($commentId);
+                $report ++ ;
+            } elseif ($report == 1) {
+                echo 'déjà signaler';
+            }
+
+            header('Location: index.php?objet=post&id=' . $postId);
+        }
+    }
+
+    // ENLEVER LE SIGNALEMENT
+    public function unReport($commentId)
+    {  
+        $comments = $this->_commentManager->getComment($commentId);
+        
+        foreach ($comments as $comment) {
+            $report = $comment->getReport($commentId);
+            if ($report == 1) {
+                $this->_commentManager->unReport($commentId);
+                $report -- ;
+
+                header ('Location: index.php?objet=admin');
+            } 
+        }
     }
 }
