@@ -42,7 +42,13 @@ class Router extends PostController
                         // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE
                         } elseif ($_GET['action'] === 'updateComment' && isset($_GET['id'])) {
                             $commentController->update($_GET['id']);
-                        } 
+                        // SIGNALEMENT D'UN COMMENTAIRE
+                        } elseif ($_GET['action'] === 'reportComment' && isset($_GET['id'])) {
+                            $commentController->report($_GET['id'], $_GET['postId']);
+                        // ENLEVER LE SIGNALEMENT D'UN COMMENTAIRE
+                        } elseif ($_GET['action'] === 'unReportComment' && isset($_GET['id'])) {
+                            $commentController->unReport($_GET['id']);
+                        }
                     //AFFICHAGE D'1 POST
                     } elseif (isset($_GET['id'])) {
                         $postController->display($_GET['id']);
