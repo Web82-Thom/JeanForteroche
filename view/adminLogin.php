@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <div id="formConnection">
     
-    <form id="formConnectionContent"method="post" action="index.php?objet=admin">
+    <form id="formConnectionContent"method="post" action="index.php?objet=admin&action=login">
     <p>Veuillez remplir les champs avec vos identifiants de connection.</p>
         <label for="em">Renseignez votre email : </label>
         <input type="email" name="email" id="em" placeholder="Email"><br />
