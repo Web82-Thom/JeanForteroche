@@ -6,6 +6,7 @@ namespace Model;
 class Comment  
 {
     private $_id;
+    private $_postId;
     private $_author;
     private $_comment;
     private $_commentDate;
@@ -18,6 +19,14 @@ class Comment
 
         if($id > 0)
             $this->_id = $id;
+    }
+
+    public function setPostId($postId)
+    {
+        $postId = (int) $postId;
+
+        if($postId > 0)
+            $this->_postId = $postId;
     }
 
     public function setAuthor($author)
@@ -49,6 +58,11 @@ class Comment
     public function getId()
     {
         return $this->_id;
+    }
+
+    public function getPostId()
+    {
+        return $this->_postId;
     }
 
     public function getAuthor()
