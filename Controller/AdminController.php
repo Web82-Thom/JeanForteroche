@@ -22,21 +22,33 @@ class AdminController
     
     // TRAITEMENT DU LOGIN
     public function login()
-    {   $this->_adminManager = new adminManager(); 
+    {   
+        $this->_adminManager = new adminManager(); 
+        $this->_adminController = new AdminController();
+
         if (!empty($_POST['email']) && !empty($_POST['password'])) { 
             $admins = $this->_adminManager->getAdmins();
             foreach ($admins as $admin) {
                 if ($_POST['email'] == $admin->getEmail() && $_POST['password'] == $admin->getPass()) {
                     $_SESSION['pseudo'] = $admin->getPseudo();
-                    $this->_adminController = new AdminController();
-                    $connect = $this->_adminController->display();
+                    $this->_adminController->display();
 
                     require_once('../view/admin.php');
                 } 
             };
+        // si une session['pseudo'] existe affichage direct admin.php
+        } elseif (isset($_SESSION['pseudo'])) {
+            $this->_adminController->display();
+
+            require_once('../view/admin.php');
         }
-        //affichage de la page connection
-        $admins = $this->_adminManager->getAdmins();
+        //sinon affichage de la page connection
+        require_once('../view/adminLogin.php');
+    }
+
+    public function destroy()
+    {
+        session_destroy();
 
         require_once('../view/adminLogin.php');
     }
