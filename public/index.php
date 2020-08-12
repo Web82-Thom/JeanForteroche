@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-use Model\Router;
+use Controller\Router;
 //use Exception;
 
 //CHARGEMENT AUTO DES CLASSES RECONSTRUCTION DU CHEMIN
