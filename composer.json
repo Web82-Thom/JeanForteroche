@@ -1,0 +1,58 @@
+{
+    "name": "thomasorta/jf-blog.com/",
+    "version": "0.0.0",
+    "type": "project",
+    "description": "Blog écrivain, Php POO",
+    "keywords": [
+      "php",
+      "mvc",
+      "superglobals",
+      "filters",
+      "crud",
+      "prepared queries",
+      "array",
+      "image",
+      "mail",
+      "security",
+      "string",
+      "twig",
+      "profiler"
+    ],
+    "homepage": "https://jf-blog.com",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Thomas ORTA",
+        "email": "thom.orta@gmail.com",
+        "homepage": "https://thomasorta.com",
+        "role": "Lead Developer"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "App\\": "public/"
+      }
+    },
+    "require": {
+      "php": "7.3",
+      "philippebeck/pam": "^4.5.0",
+      "ext-gd": "*",
+      "ext-exif": "*",
+      "ext-curl": "*",
+      "ext-json": "*"
+    },
+    "require-dev": {
+      "tracy/tracy": "^2.7.5"
+    },
+    "config": {
+      "platform": {
+        "php": "7.3"
+      }
+    },
+    "support": {
+      "email": "admin@philippebeck.net",
+      "issues": "https://github.com/Web82-Thom/JeanForteroche/issues",
+      "wiki": "https://github.com/Web82-Thom/JeanForteroche/wiki",
+      "source": "https://github.com/Web82-Thom/JeanForteroche"
+    }
+}
