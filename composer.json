@@ -35,7 +35,7 @@
     },
     "require": {
       "php": "7.3",
-      "philippebeck/pam": "^4.5.0",
+      "thomasorta/jf-blog": "^4.5.0",
       "ext-gd": "*",
       "ext-exif": "*",
       "ext-curl": "*",
@@ -50,7 +50,7 @@
       }
     },
     "support": {
-      "email": "admin@philippebeck.net",
+      "email": "admin@thomasorta.net",
       "issues": "https://github.com/Web82-Thom/JeanForteroche/issues",
       "wiki": "https://github.com/Web82-Thom/JeanForteroche/wiki",
       "source": "https://github.com/Web82-Thom/JeanForteroche"
