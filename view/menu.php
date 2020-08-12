@@ -1,5 +1,4 @@
 <h1>Jean Forteroche</h1>
-
 <div>
     <h2>"Billet simple pour l'Alaska"</h2>
         <ul id="menuNavigation">
