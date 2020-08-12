@@ -63,6 +63,10 @@ class Router extends PostController
                               $adminController->destroy();
                       }
                     }
+                // PAGE CONTACT
+                } elseif ((isset($_GET['objet']) && ($_GET['objet'] === 'contact'))) {
+                    $contactController = new ContactController;
+                    $contactController->display();
                 //REDIRECTION SUR L'INDEX.PHP
                 } elseif (isset($_GET['objet']) && ($_GET['objet'] === 'home')) {
                     header ("Location: index.php");
