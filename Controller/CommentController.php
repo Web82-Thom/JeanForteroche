@@ -15,7 +15,7 @@ class CommentController
     }
 
     // AJOUT D'UN COMMENTAIRE
-    public function add($postId)
+    public function add($postId, $author, $comment)
     {   
         //traitement du formulaire
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -37,7 +37,11 @@ class CommentController
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
             $this->_commentManager->delete($commentId);
             if ($commentId > 0) {
-                header('Location: index.php?objet=admin');
+
+                $adminController = new AdminController();
+                $adminController->display();
+               
+                require_once('../view/admin.php');
             }
 
             throw new Exception('Impossible de supprimer le commentaire !');
@@ -48,16 +52,26 @@ class CommentController
         require_once('../view/formDeleteComment.php');
     }
 
-    // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE REDIRECTION SUR PAGE ADMIN
+    // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE REDIRECTION SELON ADMIN OU USER
     public function update($commentId)
-    {
-        //traitement du formulaire
-        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+    {   //traitement du formulaire
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {                          
             $this->_commentManager->update($commentId, $_POST['author'], $_POST['comment']);
-            if ($commentId > 0) {
-                header('Location: index.php?objet=admin');
-            }
+            // redirection pour les users
+            if (!isset($_SESSION['pseudo'])) { 
+                $postController = new PostController();
+                $postController->display($postId);
 
+                require_once('../view/displayPost.php');
+
+                //header('Location: index.php?objet=post&id=' . $postId);
+            // redirection pour les admins
+            } elseif (isset($_SESSION['pseudo'])) { 
+                $adminController = new AdminController();
+                $adminController->display();
+                require_once('../view/admin.php');
+            }
+            
             throw new Exception('Impossible de modifier le commentaire !');
         } 
         // affichage du formulaire pour la modification
@@ -94,7 +108,10 @@ class CommentController
                 $this->_commentManager->unReport($commentId);
                 $report -- ;
 
-                header ('Location: index.php?objet=admin');
+                $adminController = new AdminController();
+                $adminController->display();
+
+                require_once('../view/admin.php');
             } 
         }
     }
