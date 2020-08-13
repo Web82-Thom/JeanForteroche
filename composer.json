@@ -1,6 +1,6 @@
 {
-    "name": "thomasorta/jf-blog.com/",
-    "version": "0.0.0",
+    "name": "thomasorta/jf-blog.com",
+    "version": "0.1.0",
     "type": "project",
     "description": "Blog écrivain, Php POO",
     "keywords": [
@@ -34,12 +34,7 @@
       }
     },
     "require": {
-      "php": "7.3",
-      "thomasorta/jf-blog": "^4.5.0",
-      "ext-gd": "*",
-      "ext-exif": "*",
-      "ext-curl": "*",
-      "ext-json": "*"
+      "php": "7.3"
     },
     "require-dev": {
       "tracy/tracy": "^2.7.5"
