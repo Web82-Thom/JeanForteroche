@@ -9,11 +9,13 @@ class PostController
 {
     private $_postManager;
     private $_commentManager;
+    private $_adminController;
 
     public function __construct()
     {
         $this->_postManager = new PostManager();
         $this->_commentManager = new CommentManager();
+        $this->_adminController = new AdminController();
     }
 
     // RECUPERATION D'UN POST
@@ -70,12 +72,12 @@ class PostController
         //traitement du formulaire
         if (!empty($_POST['title']) && !empty($_POST['content'])) {
             $this->_postManager->delete($postId);
-
-            header('Location: index.php?objet=admin');
+            $this->_adminController->display();
         }
 
         // affichage du formulaire modification
         $post = $this->_postManager->getPost($postId);
+
         require_once('../view/formDeletePost.php');
     }
 }            
