@@ -38,7 +38,7 @@
         <p id="commentAuthor"><strong><?= htmlspecialchars($comment->getAuthor()); ?></strong></p>
         <em class="dateInfos">publié le <?= $comment->getCommentDate(); ?></em>
         <p id="commentContent"><?= htmlspecialchars($comment->getComment()); ?></p>
-        <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a><br />
+        <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>">Modifier</a><br />
         <p><a class="adminLink" href="index.php?objet=post&action=reportComment&id=<?= $comment->getId() ; ?>&postId= <?= $post->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));" onclick="window.location.reload(false)" ><?php if ($comment->getReport() == 1) { echo ''; } else { echo 'Signaler';} ?></a></p>
         <p id="reportSignal"><?php if ($comment->getReport() == 1) { echo 'Commentaire signaler'; } ?> </p>     
     </div>
