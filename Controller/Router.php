@@ -36,7 +36,7 @@ class Router extends PostController
                             $commentController->delete($_GET['id']);
                         // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE
                         } elseif ($_GET['action'] === 'updateComment' && isset($_GET['id'])) {
-                            $commentController->update($_GET['id']);
+                            $commentController->update($_GET['id'], $_GET['postId']);
                         // SIGNALEMENT D'UN COMMENTAIRE
                         } elseif ($_GET['action'] === 'reportComment' && isset($_GET['id'])) {
                             $commentController->report($_GET['id'], $_GET['postId']);
