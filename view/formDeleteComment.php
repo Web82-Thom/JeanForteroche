@@ -1,17 +1,17 @@
 <?php $title = "Suppression des Commentaires"; ?>
 
 <?php ob_start(); ?>
-<?php foreach ($comment as $comments); { ?>
+<?php foreach ($comments as $comment); { ?>
     <div id="formDeleteComment">
         <h3 id="formTitle">Suppression de commentaire</h3>
-        <form id="formContent" method="POST" action="index.php?objet=post&action=deleteComment&id=<?= $comments->getId(); ?>">
+        <form id="formContent" method="POST" action="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">
             <div>
                 <label for="author">Auteur</label><br />
-                <input type="text" id="author" name="author" <?php echo 'value="' . $comments->getAuthor() . '"'; ?>/>
+                <input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/>
             </div>
             <div>
                 <label for="comment">Commentaire</label><br />
-                <textarea id="comment" name="comment"><?= $comments->getComment(); ?></textarea>
+                <textarea id="comment" name="comment"><?= $comment->getComment(); ?></textarea>
             </div>
             <div>
                 <input type="submit" value="Supprimer le commentaire"/>
