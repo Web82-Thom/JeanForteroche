@@ -28,7 +28,7 @@ class CommentManager extends Database
     // RECUPERATION D'UN COMMENTAIRE
     public function getComment($commentId)
     {
-        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, post_id, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin\') AS commentDate FROM comments WHERE id = ? ORDER BY commentDate DESC');
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin\') AS commentDate FROM comments WHERE id = ? ORDER BY commentDate DESC');
         //return $req->execute(array($commentId));
         $req->execute(array($commentId));
         $comments = [];
@@ -44,7 +44,7 @@ class CommentManager extends Database
     //RECUPERATION DES COMMENTAIRES
     public function getComments()
     {
-        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, post_id, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em>à %Hh%imin\') AS commentDate FROM comments ORDER BY commentDate DESC /*LIMIT 5*/ ');
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em>à %Hh%imin\') AS commentDate FROM comments ORDER BY commentDate DESC /*LIMIT 5*/ ');
         $req->execute();
         $comments = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -58,7 +58,7 @@ class CommentManager extends Database
     //RECUPERATION DES COMMENTAIRES PAR LE POST ID
     public function getCommentsByPostId($postId)
     {
-        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, post_id, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS commentDate FROM comments WHERE post_id = ? ORDER BY commentDate DESC /*LIMIT 5*/ ');
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS commentDate FROM comments WHERE postId = ? ORDER BY commentDate DESC /*LIMIT 5*/ ');
         $req->execute(array($postId));
         $comments = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -72,7 +72,7 @@ class CommentManager extends Database
     // AJOUT DES COMMENTAIRES
     public function add($postId, $author, $comment)
     {
-        $add = $this->getDataBase()->prepare('INSERT INTO comments(post_id, author, comment, report, commentDate) VALUES(?, ?, ?, 0, NOW())');
+        $add = $this->getDataBase()->prepare('INSERT INTO comments(postId, author, comment, report, commentDate) VALUES(?, ?, ?, 0, NOW())');
         
         return $add->execute(array($postId, $author, $comment));
     }
