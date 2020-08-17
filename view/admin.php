@@ -34,8 +34,8 @@
             <h4>Auteur : <?= $comment->getAuthor(); ?></h4>
                 <li id="listComments">
                     <ul><p>Contenu : <?= $comment->getComment(); ?></p></ul>
-                    <ul><a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">Supprimer</a></ul>  
-                    <ul><a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>">Modifier</a></ul>
+                    <ul><a class="adminLink" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>">Supprimer</a></ul>  
+                    <ul><a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>">Modifier</a></ul>
                     <ul><p id="reportSignal"><?php if ($comment->getreport() == 1) { echo 'Commentaire signaler'; } ?> </p></ul>
                     <ul><a class="adminLink" href="index.php?objet=post&action=unReportComment&id=<?= $comment->getId(); ?>" onclick="window.location.reload(false)"><?php if ($comment->getreport() == 1) { echo 'aprouver'; } ?></a></ul>
                 </li>
