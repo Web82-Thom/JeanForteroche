@@ -39,5 +39,6 @@
         <meta property="og:site_name" content="Jean Forteroche" />
         <!-- contrôler la façon dont les moteurs de recherches explorent et indexent une page -->
         <meta name="robots" content="none" />
-        <!-- lien API mapbox , lien leaflet -->
+        <!-- lien tinyMce -->
+        <script src="https://cdn.tiny.cloud/1/zlz60md847scmftjlvg9i0ekftezuwbh8yqp2v076ujm04oe/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
