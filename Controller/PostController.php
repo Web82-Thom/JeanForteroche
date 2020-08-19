@@ -9,13 +9,11 @@ class PostController
 {
     private $_postManager;
     private $_commentManager;
-    private $_adminController;
 
     public function __construct()
     {
         $this->_postManager = new PostManager();
         $this->_commentManager = new CommentManager();
-        $this->_adminController = new AdminController();
     }
 
     // RECUPERATION D'UN POST
@@ -47,35 +45,30 @@ class PostController
             throw new Exception('Impossible d\'ajouter le post !');
         } 
                 
-        // affichage du formulaire ajout
         require_once('../view/formAddPost.php');
     }
 
     // AFFICHAGE et MODIFICATION
     public function update($postId) 
     {
-        // traitement du formulaire
         if (!empty($_POST['title']) && !empty($_POST['content'])) {
             $this->_postManager->update($postId, $_POST['title'], $_POST['content']);
 
             header('Location: index.php?objet=post&id=' . $postId);
         } 
-
-        // affichage du formulaire modification
         $post = $this->_postManager->getPost($postId);
+
         require_once('../view/formUpdatePost.php');;
     }
 
     // AFFICHAGE et SUPPRESSION
     public function delete($postId)
     {
-        //traitement du formulaire
         if (!empty($_POST['title']) && !empty($_POST['content'])) {
             $this->_postManager->delete($postId);
-            $this->_adminController->display();
-        }
 
-        // affichage du formulaire modification
+            header('Location: index.php?objet=admin');
+        }
         $post = $this->_postManager->getPost($postId);
 
         require_once('../view/formDeletePost.php');
