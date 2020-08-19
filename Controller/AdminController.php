@@ -1,6 +1,7 @@
 <?php
 
 namespace Controller;
+
 use Model\PostManager;
 use Model\CommentManager;
 use Model\AdminManager;
@@ -8,13 +9,11 @@ use Model\AdminManager;
 class AdminController
 {   
     public function display()
-    {   //affichage des posts sur admin.php
+    {   
         $this->_postManager = new PostManager();
         $posts = $this->_postManager->getPosts();
-        //affichage des commentairs sur admin.php
         $this->_commentManager = new CommentManager();
         $comments = $this->_commentManager->getComments();
-        //afichage des administrateurs
         $this->_adminManager = new adminManager();
         $admins = $this->_adminManager->getAdmins();
         require_once('../view/admin.php');
@@ -36,13 +35,11 @@ class AdminController
                     require_once('../view/admin.php');
                 } 
             };
-        // si une session['pseudo'] existe affichage direct admin.php
         } elseif (isset($_SESSION['pseudo'])) {
             $this->_adminController->display();
 
             require_once('../view/admin.php');
         }
-        //sinon affichage de la page connection
         require_once('../view/adminLogin.php');
     }
 
