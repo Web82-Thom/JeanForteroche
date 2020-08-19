@@ -5,6 +5,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 body {
     background-image: url("../images/bienvenue.jpg");
     background-size: cover;
@@ -19,6 +20,7 @@ body {
     font-family: 'NotoSerif';
     margin: 0;
 }
+
 h1 {
     display: flex;
     justify-content: space-around;
@@ -27,6 +29,7 @@ h1 {
     color: white;
     margin-bottom: 0;
 }
+
 h2 {
     display: flex;
     justify-content: space-around;
@@ -58,11 +61,13 @@ h2 {
 
 a:hover {	
     text-decoration: none;	
-}	
+}
+
 a {	
     text-decoration: none;	
     color: white;	
 }
+
 #contentPresentation {
     background-color: white;
     opacity: 0.8;
@@ -73,22 +78,26 @@ a {
     position: relative;
     display: flex;
 }
+
 #photoAuthor {
     display: flex;
     width: 50%;
     position: relative;
     margin: 5px;
 }
+
 #contentPhoto {
     display: flex;
    align-items: center;
 }
+
 .photoAuthor {
     width: 100%;
     position: absolute;
     display: flex;
     z-index: 1;
 }
+
 #contentText {
     width: 50%;
     margin: 5px;
@@ -100,6 +109,7 @@ a {
     margin-left: 50px;
     margin-right: 50px;
 }
+
 #experience h3 {
     font-size: 35px;
     height: 50px;
@@ -108,6 +118,7 @@ a {
     justify-content: center;
     margin-bottom: 0;
 }
+
 #experience {
     background-color: white;
     width: 100%;
@@ -119,6 +130,7 @@ a {
     min-height: 300px;
     opacity: 0.8;
 }
+
 #oneLibrary {
     width: 80%;
     min-height: 500px;
@@ -126,12 +138,14 @@ a {
     display: flex;
     margin-bottom: 2%;
 }
+
 #nameBookOne {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 #imgBook {
     display: flex;
     align-items: center;
@@ -140,9 +154,11 @@ a {
     height: 300px;
     position: relative;
 }
+
 #imgBook img {
     width: 100%;
 }
+
 #infosBookOne {
     width: 50%;
     display: flex;
@@ -153,6 +169,7 @@ a {
     margin-left: 50px;
     text-align: justify;
 }
+
 footer {
     background-color: black;
     width: 100%;
@@ -160,6 +177,7 @@ footer {
     display: flex;
     margin-top: 20px;
 }
+
 #menuFooter {
     list-style-type: none;
     display: flex;
@@ -170,7 +188,6 @@ footer {
     margin: auto;
     padding: 0;
 }
-
 /*
 *
 *       displayPosts.php
@@ -183,12 +200,14 @@ footer {
     margin-bottom: 20px;
     background-color: white;
 }
+
 #titleListTicket {
     display: flex;
     justify-content: space-around;
     font-size: 40px;
     color: black;
 }
+
 .titleTicket {
     margin-bottom: 0;
     border-bottom: 2px solid black;
@@ -197,17 +216,20 @@ footer {
     margin-top: 0;
     padding-left: 5%;
 }
+
 .postText {
     width: 90%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .linkComment {
     margin-left: 5px;
     margin-bottom:5px;
     color: black;
 }
+
 .link {
     color: black;
 }
@@ -224,6 +246,7 @@ footer {
     margin-bottom: 20px;
     background-color: white;
 }
+
 #formAddComment {
     width: 70%;
     margin: auto;
@@ -231,30 +254,37 @@ footer {
     margin-bottom: 20px;
     background-color: rgb(138, 135, 135);
 }
+
 #formTitle {
     margin: auto;
     text-align: center;
 }
+
 .dateInfos {
     margin-left: 10px;
 }
+
 #formContent {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 #commentAuthor {
     padding-left: 5%;
     background-color: seagreen;
     margin: 0;
 }
+
 #commentContent {
     padding-left: 5%;
 }
+
 #comment {
     width: 80%;
     height: 90px;
 }
+
 #linkDeleteComment {
     color: black;
     margin-left : 10px;
@@ -267,6 +297,7 @@ footer {
 #form {
     width: 80%;
 }
+
 #mytextarea {
     width: 80%;
     height: 200px;
@@ -280,9 +311,11 @@ footer {
     text-align: center;
     font-size: 35px;
 }
+
 .welcomeAdmin {
     margin: 35px;
 }
+
 .adminPage {
     width: 80%;
     margin: auto;
@@ -291,8 +324,70 @@ footer {
     padding-right: 20px;
     background-color: white;
 }
-.adminLink {
+
+.adminLink{
     color: green;
+}
+
+.adminLinkDelete {
+    color: orangered;
+}
+
+.adminLinkReport {
+    color: red;
+}
+
+table {
+    width:100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 8px;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:hover {
+    background-color: rgb(206, 200, 200);
+
+}
+
+.tableCommentHead{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.tableCommentContent{
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+th{
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+td{
+    padding: 15px;
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.fa-trash-alt {
+    color: red;
 }
 /**
 *
@@ -308,15 +403,62 @@ footer {
     padding: 10px;
     background-color: white;
 }
+
 #formConnectionContent {
     display: flex;
     flex-direction: column;
     width: 80%;
     margin: auto;
 }
+
 #reportSignal {
     color:red;
 }
+
 #listComments {
     list-style-type: none;
+}
+/*
+*
+*   contact.php
+*
+*/
+#blocFormContact {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
+#formContact {
+    
+    width: 80%;
+    margin: auto;
+    padding: 2%;
+    z-index: 2;
+    right: 10%;
+    top: 10%;
+    margin-top: 5%;
+    text-align: center;
+}
+
+#inputContact {
+    width: 20%;
+}
+
+#inputContactName, #inputContactFirstName {
+    width: 20%;
+}
+ 
+#inputContactEmail, #inputContactTitle {
+    width: 30%;
+}
+
+#inputContactMessage {
+    width: 80%;
+}
+
+#buttonSend {
+    max-width: 30%;
+    border-radius: 10px;
+    padding: 5px;
 }
