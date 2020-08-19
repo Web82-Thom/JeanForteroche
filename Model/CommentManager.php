@@ -3,7 +3,7 @@
 namespace Model;
 
 use Model\Comment;
-use Model\Router;
+use Controller\Router;
 use PDO;
 
 class CommentManager extends Database
@@ -11,14 +11,10 @@ class CommentManager extends Database
     public function hydrate(array $data) 
     {
         $comment = new Comment();
-        //parcours les données avec le foreach
         foreach($data as $key => $value)
         {
-            //ucfirst pour la majuscule (on recuperer la donnée);
             $method = 'set'.ucfirst($key);
-            // si elle exist
             if(method_exists($comment, $method))
-            //on lance la methode qui appel le setter
             $comment->$method($value);
         }
         
@@ -29,7 +25,6 @@ class CommentManager extends Database
     public function getComment($commentId)
     {
         $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin\') AS commentDate FROM comments WHERE id = ? ORDER BY commentDate DESC');
-        //return $req->execute(array($commentId));
         $req->execute(array($commentId));
         $comments = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -38,7 +33,6 @@ class CommentManager extends Database
         $req->closeCursor();
         
         return $comments;
-        
     }
 
     //RECUPERATION DES COMMENTAIRES
