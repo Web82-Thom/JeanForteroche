@@ -4,8 +4,8 @@
         <ul id="menuNavigation">
             <li> <a href="index.php?objet=home">Présentation</a></li>
             <li> <a href="index.php?objet=post">Liste des Billets</a></li>
-            <li> <a href="#">Contact</a></li>
-            <li id="menuAdmin"> <a href="">Admin</a>
+            <li> <a href="index.php?objet=contact">Contact</a></li>
+            <li id="menuAdmin"> <a href="index.php?objet=admin&action=login">Admin</a>
                 <ul id="sousMenu">
                     <li><a href="index.php?objet=admin&action=login">Se connecter</a></li>
                     <li><a href="index.php?objet=admin&action=destroy">Se déconnecter</a></li>
