@@ -2,8 +2,6 @@
 session_start();
 
 use Controller\Router;
-//use Tracy\Debugger;
-//use Exception;
 
 //CHARGEMENT AUTO DES CLASSES RECONSTRUCTION DU CHEMIN
 spl_autoload_register(function($class) {
@@ -15,7 +13,5 @@ spl_autoload_register(function($class) {
     }
 });
 
-//Debugger::enable();
-//instance de la classe $router et lance la méthode requete();
 $router = new Router(); 
 $router->requete();
