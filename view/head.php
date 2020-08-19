@@ -41,4 +41,5 @@
         <meta name="robots" content="none" />
         <!-- lien tinyMce -->
         <script src="https://cdn.tiny.cloud/1/zlz60md847scmftjlvg9i0ekftezuwbh8yqp2v076ujm04oe/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://kit.fontawesome.com/67cbdf618e.js" crossorigin="anonymous"></script>
 </head>
