@@ -3,24 +3,19 @@
 namespace Model;
 
 use Model\Post;
-use Model\Router;
+use Controller\Router;
 use PDO;
 
 class PostManager extends Database
 {
     //HYDRATATION
-    //revoie les diff setter pour mettres a jour les données sous conditions pour securité max
     public function hydrate(array $data) 
     {
         $post = new Post();
-        //parcours les données avec le foreach
         foreach($data as $key => $value)
         {
-            //ucfirst pour la majuscule (on recuperer la donnée);
             $method = 'set'.ucfirst($key);
-            // si elle exist
             if(method_exists($post, $method))
-            //on lance la methode qui appel le setter
             $post->$method($value);
         }
 
@@ -58,7 +53,7 @@ class PostManager extends Database
 
         $req = $this->getDataBase()->prepare('SELECT LAST_INSERT_ID();');
         $req->execute();
-        //recupe l'element 0 du array et transforme en int
+
         return (int) $req->fetch()[0];
     }
 
