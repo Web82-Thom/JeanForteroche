@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use Model\Router;
+use Controller\Router;
 use PDO;
 
 class AdminManager extends Database 
@@ -10,20 +10,16 @@ class AdminManager extends Database
     public function hydrate(array $data) 
     {
         $admin = new admin();
-        //parcours les données avec le foreach
         foreach($data as $key => $value)
         {
-            //ucfirst pour la majuscule (on recuperer la donnée);
             $method = 'set'.ucfirst($key);
-            // si elle exist
             if(method_exists($admin, $method))
-            //on lance la methode qui appel le setter
             $admin->$method($value);
         }
         
         return $admin;
     }
-
+    
     // RECUPEARATION DES ADMINISTRATEURS
     public function getAdmins()
     {
