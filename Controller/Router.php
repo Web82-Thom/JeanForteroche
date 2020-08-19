@@ -52,23 +52,23 @@ class Router extends PostController
                         $postController->displayPosts();
                     }
                 //REDIRECTION SUR L'ADMIN
-                } elseif ($_GET['objet'] === 'admin') { // 1 l'appel de l'objet
-                    $adminController = new AdminController; // 2 instanciation du controller
-                   if (isset($_GET['action'])) {  //3 s'il y a des actions
-                        // action 1 
-                        if ($_GET['action'] === 'login') {// 4 appeler chaque actions existantes
-                          $adminController->login();
-                        // action 2
-                      } elseif ($_GET['action'] === 'destroy') { 
-                              $adminController->destroy();
-                      }
+                } elseif ($_GET['objet'] === 'admin') {
+                    $adminController = new AdminController;
+                    if (isset($_GET['action'])) {
+                        if ($_GET['action'] === 'login') {
+                            $adminController->login();
+                        } elseif ($_GET['action'] === 'destroy') { 
+                            $adminController->destroy();
+                        }
                     }
+                    $adminController->display();
                 // PAGE CONTACT
                 } elseif ((isset($_GET['objet']) && ($_GET['objet'] === 'contact'))) {
                     $contactController = new ContactController;
                     $contactController->display();
                 //REDIRECTION SUR L'INDEX.PHP
                 } elseif (isset($_GET['objet']) && ($_GET['objet'] === 'home')) {
+
                     header ("Location: index.php");
                 }
             //SI L'UTILISATEUR FAIT RIEN "PAGE D'ACCUEIL"
@@ -79,6 +79,7 @@ class Router extends PostController
         //GESTION DES ERREURS
         } catch(Exception $e) {
             $errorMsg = $e->getMessage();
+
             require_once('../views/viewError.php');
         }
     }
