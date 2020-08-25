@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
     <div class="adminPage">
         <h3 id="titleAdmin">Administrateur</h3>
-        <p class="welcomeAdmin">Bonjour Mr <?=  $_SESSION['pseudo']; ?>, cette page vous est consacrée pour gerer votre site.</p>
+        <p class="welcomeAdmin">Bonjour Mr <?= $_SESSION['pseudo']; ?>, cette page vous est consacrée pour gerer votre site.</p>
         
         <h3>Creation d'un chapitre</h3>
             <ul>
@@ -60,11 +60,11 @@
                     <table>
                         <tbody>
                             <tr>
-                                <td><?= substr(htmlspecialchars($comment->getComment()),0 ,20), '....';  ?></td>
+                                <td><?= substr(htmlspecialchars($comment->getComment()),0 ,20), '....'; ?></td>
                                 <td><?= htmlspecialchars($comment->getAuthor());?></td>
                                 <td><a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>"><button><i class="fab fa-readme"></i> / <i class="fas fa-keyboard"></i></a></button></ul></td>
                                 <td><a class="adminLinkDelete" href="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>"><button><i class="fas fa-trash-alt"></i></button></a></td>
-                                <td><a class="adminLinkReport" href="index.php?objet=post&action=unReportComment&id=<?= $comment->getId(); ?>" onclick="window.location.reload(false)"><?php if ($comment->getreport() == 1) { echo 'ATTENTION, cliqué ici pour aprouver'; }?></a></td>
+                                <td><a class="adminLinkReport" href="index.php?objet=post&action=unReportComment&id=<?= $comment->getId(); ?>" onclick="window.location.reload(false)"><?php if ($comment->getreport() == 1) {echo 'ATTENTION, cliqué ici pour aprouver';} ?></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -74,7 +74,7 @@
     </div>
     
 <?php
-$content = ob_get_clean(); 
+    $content = ob_get_clean(); 
 
-require_once('template.php');
+    require_once("template.php");
 ?>
