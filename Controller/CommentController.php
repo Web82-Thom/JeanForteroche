@@ -32,24 +32,28 @@ class CommentController
 
     // AFFICHAGE AVANT SUPRESSION D'UN COMMENTAIRE
     public function delete($commentId)
-    {
-        if ($commentId >= 0 && !empty($_POST['author']) && !empty($_POST['comment'])) {
-            $this->_commentManager->delete($commentId);
-            if ($commentId > 0) {
-                header('Location: index.php?objet=admin');
+    {   if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1 ) {
+            if ($commentId >= 0 && !empty($_POST['author']) && !empty($_POST['comment'])) {
+                $this->_commentManager->delete($commentId);
+                if ($commentId > 0) {
+                    header('Location: index.php?objet=admin');
+                }
+
+                throw new Exception('Impossible d\'ajouter le commentaire !');
             }
+            $comments = $this->_commentManager->getComment($commentId);
 
-            throw new Exception('Impossible d\'ajouter le commentaire !');
+            require_once('../view/formDeleteComment.php');
         }
-        $comments = $this->_commentManager->getComment($commentId);
 
-        require_once('../view/formDeleteComment.php');
+        require_once('../view/noAccess.php');
     }
 
-    // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE REDIRECTION SELON ADMIN OU USER
+    // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE
     public function update($commentId, $postId)
     {
-        if (isset($_SESSION['pseudo'])) {
+        if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1 ) {
+            var_dump($_SESSION['firstAdmin']);
             if (!empty($_POST['author']) && !empty($_POST['comment']) && isset($_SESSION['pseudo'])) {                          
                 $this->_commentManager->update($commentId, $_POST['author'], $_POST['comment']);
                 
@@ -81,16 +85,20 @@ class CommentController
 
     // ENLEVER LE SIGNALEMENT
     public function unReport($commentId)
-    {  
-        $comments = $this->_commentManager->getComment($commentId);
-        foreach ($comments as $comment) {
-            $report = $comment->getReport($commentId);
-            if ($report == 1) {
-                $this->_commentManager->unReport($commentId);
-                $report -- ;
+    {   
+        if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1 ) {
+            $comments = $this->_commentManager->getComment($commentId);
+            foreach ($comments as $comment) {
+                $report = $comment->getReport($commentId);
+                if ($report == 1) {
+                    $this->_commentManager->unReport($commentId);
+                    $report -- ;
 
-                header('Location: index.php?objet=admin');
-            } 
+                    header('Location: index.php?objet=admin');
+                } 
+            }
         }
+
+        require_once('../view/noAccess.php');
     }
 }
