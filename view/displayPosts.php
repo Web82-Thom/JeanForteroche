@@ -8,7 +8,7 @@
         <h3 class="titleTicket"><a href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><?= htmlspecialchars($post->getTitle());?></h3></a> 
         <em class="dateInfos">publié le <?= $post->getCreationDate();?></em>
         <div id="post">
-            <p class="postText"><?= $post->getContent();?></p>
+            <p class="postText"><?= htmlspecialchars($post->getContent());?></p>
         </div>  
     </div> 
 <?php } ?>
