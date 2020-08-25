@@ -1,3 +1,4 @@
+config/database.php
 public/fonts/
 public/images/
 .idea/
