@@ -16,6 +16,7 @@ class AdminController
         $comments = $this->_commentManager->getComments();
         $this->_adminManager = new adminManager();
         $admins = $this->_adminManager->getAdmins();
+        
         require_once('../view/admin.php');
     }
     
@@ -30,16 +31,17 @@ class AdminController
             foreach ($admins as $admin) {
                 if ($_POST['email'] == $admin->getEmail() && $_POST['password'] == $admin->getPass()) {
                     $_SESSION['pseudo'] = $admin->getPseudo();
+                    $_SESSION['firstAdmin'] = $admin->getFirstAdmin();
                     $this->_adminController->display();
 
                     require_once('../view/admin.php');
                 } 
             };
-        } elseif (isset($_SESSION['pseudo'])) {
+        } elseif (isset($_SESSION['firstAdmin'])) {
             $this->_adminController->display();
 
             require_once('../view/admin.php');
-        }
+        }  
         require_once('../view/adminLogin.php');
     }
 
