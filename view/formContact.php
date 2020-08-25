@@ -10,15 +10,9 @@
         <input id="inputContactEmail" type="email" name="email" placeholder="Votre Email" size="30" maxlength="50"><br>
         <input id="inputContactTitle" type="text" name="title" placeholder="Titre" size="30"><br>
         <textarea id="inputContactMessage" type="text" name="message" rows="10" cols="30" placeholder="Votre message" maxlength="150"></textarea><br>
-        <button id="buttonSend" type="button" name="mailForm" title="Envoyer"> Envoyer votre message</button>
+        <button id="buttonSend" type="submit" name="mailForm" title="Envoyer"> Envoyer votre message</button>
+        <p id="echoMessageContact"><?php if (isset($message)) { echo $msg; } ?></p>
     </form>
-    <?php
-		if(isset($msg)) {
-			echo $msg;
-		}
-    ?>
-    
- 
 </div>
 <?php
 $content = ob_get_clean(); 
