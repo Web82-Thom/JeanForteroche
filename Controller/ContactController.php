@@ -8,7 +8,6 @@ class ContactController
 {
     public function display()
     {
-        var_dump('1 affichage');
         $contactManager = new ContactManager();
         $contactManager->sendMail();
 
