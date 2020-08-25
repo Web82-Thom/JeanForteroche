@@ -8,21 +8,18 @@ class ContactManager
 {
     public function sendMail()
     {
-var_dump('2 traitement du formulaire');
         if(isset($_POST['mailForm'])) {
-var_dump($_POST['mailForm']);
             if(!empty($_POST['name']) AND !empty($_POST['email']) AND !empty($_POST['message'])) {
-                var_dump($_POST['name']);
                 $header="MIME-Version: 1.0\r\n";
-                $header.='From:"JeanForteroche.com"<support@jeanforteroche.com>'."\n";
-                $header.='Content-Type:text/html; charset="uft-8"'."\n";
-                $header.='Content-Transfer-Encoding: 8bit';
+                $header .='From:"jf-blog.com"<support@jeanforteroche.com>'."\n";
+                $header .='Content-Type:text/html; charset="uft-8"'."\n";
+                $header .='Content-Transfer-Encoding: 16bit';
 
                 $message='
                 <html>
                     <body>
                         <div align="center">
-                            <u>Nom de l\'expéditeur :</u>'.$_POST['name'].'<br />
+                            <u>Nom et prenom de l\'expéditeur :</u>'. $_POST['name'] . ' ' . $_POST['firstName'] .'<br />
                             <u>Mail de l\'expéditeur :</u>'.$_POST['email'].'<br />
                             <br />
                             '.nl2br($_POST['message']).'
