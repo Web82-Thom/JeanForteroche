@@ -2,18 +2,26 @@
 
 <?php ob_start(); ?>
 
-<h3>Suppression des Chapitres</h3>
-    <div id ="form">
-        <form method="post" action="index.php?objet=post&action=delete&id=<?= $post->getId();?>">
-            <p>
-                <label for="title">Titre</label>
-                <input type="text" placeholder="Titre" id="title" name="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>>
-            </p>
-            <p><textarea id="mytextarea" placeholder="Contenu" name="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea></p>
-            <p><input type="hidden" name="action" value="delete"></p>
-            <p><input type="submit" value="Supprimer"></p>
-        </form>
-    </div>
+<div id ="form">
+    <form method="post" action="index.php?objet=post&action=delete&id=<?= $post->getId();?>">
+        <h2>Suppression du Chapitres <?= $post->getTitle();?></h2>
+        <div class="labelTitle">
+            <h3><label for="title">Titre :</label></h3>
+            <p><input type="text" placeholder="Titre" name ="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>></p>
+        </div>
+        <div class="labelContent">
+            <h3><label for="content">Contenu :</label></h3>
+            <p><textarea id="mytextarea" placeholder ="contenu" name ="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea></p>
+        </div>
+            <button class="formButton" type="submit" value ="Supprimer">Supprimer le chapître <?= $post->getTitle();?></button>
+    </form>
+</div>
+<script>
+    tinymce.init({
+    selector: '#mytextarea',
+    readonly: true,
+    });
+</script>
 
 <?php $content = ob_get_clean(); ?>
 
