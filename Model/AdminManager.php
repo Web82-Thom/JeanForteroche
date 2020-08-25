@@ -9,7 +9,7 @@ class AdminManager extends Database
 {
     public function hydrate(array $data) 
     {
-        $admin = new admin();
+        $admin = new Admin();
         foreach($data as $key => $value)
         {
             $method = 'set'.ucfirst($key);
