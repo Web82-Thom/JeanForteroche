@@ -2,7 +2,7 @@
 session_start();
 
 use Controller\Router;
-
+use Exception;
 //CHARGEMENT AUTO DES CLASSES RECONSTRUCTION DU CHEMIN
 spl_autoload_register(function($class) {
     $class = '../' . str_replace("\\", '/', $class) . '.php';
