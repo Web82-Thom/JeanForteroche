@@ -39,8 +39,8 @@
     <li>modifier un commentaire …..................................(ok)</li>
 </ul>
 
-<h2>PAGE CONTACT ….............................................(pas encore travailler)</h2>
+<h2>PAGE CONTACT ….............................................(ok)</h2>
 <ul>    
-    <li>Formulaire de contact</li>
-    <li>envoie du formulaire sur la boite Mail</li>
+    <li>Formulaire de contact..................................(ok)</li>
+    <li>envoie du formulaire sur la boite Mail.................(en local ok avec sendmail.exe)</li>
 </ul>
