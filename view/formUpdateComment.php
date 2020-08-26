@@ -3,20 +3,18 @@
 <?php ob_start(); ?>
 
 <?php foreach ($comments as $comment) { ?>
-    <div id="formUpdateComment">
-        <h3 id="formTitle">Modification de commentaire</h3>
-        <form id="formContent" method="POST" action="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>">
-            <div>
-                <label for="author">Auteur</label><br />
-                <input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/>
+    <div id="form">
+        <form method="POST" action="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>">
+            <h2 id="formTitle">Modification de commentaire</h2>    
+            <div class="labelTitle">
+                <h3><label for="author">Auteur</label></h3>
+                <p><input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/></p>
             </div>
-            <div>
-                <label for="comment">Commentaire</label><br />
-                <textarea id="comment" name="comment"><?= $comment->getComment(); ?></textarea>
+            <div class="labelContent">
+                <h3><label for="comment">Commentaire</label></h3>
+                <textarea id="mytextarea" name="comment"><?= $comment->getComment(); ?></textarea>
             </div>
-            <div>
-                <input type="submit" value="Modifier le commentaire"/>
-            </div>
+                <button type="submit"class="formButton" value="Modifier le commentaire">Modifier le commentaire</button>
         </form>
     </div>
 <?php } ?>
