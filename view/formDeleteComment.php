@@ -1,21 +1,20 @@
 <?php $title = "Suppression des Commentaires"; ?>
 
 <?php ob_start(); ?>
+
 <?php foreach ($comments as $comment); { ?>
-    <div id="formDeleteComment">
-        <h3 id="formTitle">Suppression de commentaire</h3>
-        <form id="formContent" method="POST" action="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">
-            <div>
-                <label for="author">Auteur</label><br />
-                <input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/>
+    <div id="form">
+        <form method="POST" action="index.php?objet=post&action=deleteComment&id=<?= $comment->getId(); ?>">
+            <h2 id="formTitle">Suppression de commentaire</h2>    
+            <div class="labelTitle">
+                <h3><label for="author">Auteur</label><br /></3>
+                <p><input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/></p>
             </div>
-            <div>
-                <label for="comment">Commentaire</label><br />
-                <textarea id="comment" name="comment"><?= $comment->getComment(); ?></textarea>
+            <div class="labelContent">
+                <h3><label for="comment">Commentaire</label><br /></h3>
+                <textarea id="mytextarea" name="comment"><?= $comment->getComment(); ?></textarea>
             </div>
-            <div>
-                <input type="submit" value="Supprimer le commentaire"/>
-            </div>
+                <button class="formButton" type="submit" value="Supprimer le commentaire">Supprimer le commentaire</button>
         </form>
     </div>
 <?php } ?>
