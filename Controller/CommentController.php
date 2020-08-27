@@ -53,7 +53,6 @@ class CommentController
     public function update($commentId, $postId)
     {
         if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1 ) {
-            var_dump($_SESSION['firstAdmin']);
             if (!empty($_POST['author']) && !empty($_POST['comment']) && isset($_SESSION['pseudo'])) {                          
                 $this->_commentManager->update($commentId, $_POST['author'], $_POST['comment']);
                 
