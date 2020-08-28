@@ -8,13 +8,13 @@
             <h2 id="formTitle">Suppression de commentaire</h2>    
             <div class="labelTitle">
                 <h3><label for="author">Auteur</label><br /></3>
-                <p><input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/></p>
+                <input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/>
             </div>
             <div class="labelContent">
                 <h3><label for="comment">Commentaire</label><br /></h3>
                 <textarea id="mytextarea" name="comment"><?= $comment->getComment(); ?></textarea>
             </div>
-                <button class="formButton" type="submit" value="Supprimer le commentaire">Supprimer le commentaire</button>
+            <button class="formButton" type="submit" value="Supprimer le commentaire">Supprimer le commentaire</button>
         </form>
     </div>
 <?php } ?>

@@ -1,0 +1,65 @@
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+h3 {
+    font-size: 18px;
+}
+#titleBook {
+    font-size: 20px;
+}
+
+#menu li {
+    font-size: 15px;
+}
+#library h3 {
+    font-size: 25px;
+}
+#photoBook {
+    width: 100%;
+}
+
+.titleTicket {
+    font-size: 20px;
+}
+.dateInfos {
+    font-size: 10px;
+}
+#formAddComment, #commentDisplay {
+    width: 95%;
+}
+#comment {
+    height: 80px;
+}
+#actionComment p {
+    font-size: 12px;
+}
+#form form {
+    width: 95%;
+    border-radius: 0;
+}
+.adminPage {
+    width: 90%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.blockAdmin h3 {
+    text-align: center;
+    font-size: 22px;
+}
+table th {
+    font-size: 12px;
+}
+td {
+    padding: 0;
+    font-size: 12px;
+}
+.fab, .fas {
+    font-size: 15px;
+}
+td {
+    padding: 0px;
+}

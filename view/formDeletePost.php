@@ -1,4 +1,4 @@
-<?php  $title = "Admin-Suppression"; ?>
+<?php  $title = "Admin-Suppression du chapitre " . $post->getTitle(); ?>
 
 <?php ob_start(); ?>
 
@@ -7,13 +7,13 @@
         <h2>Suppression du Chapitres <?= $post->getTitle();?></h2>
         <div class="labelTitle">
             <h3><label for="title">Titre :</label></h3>
-            <p><input type="text" placeholder="Titre" name ="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>></p>
+            <input type="text" placeholder="Titre" name ="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>>
         </div>
         <div class="labelContent">
             <h3><label for="content">Contenu :</label></h3>
-            <p><textarea id="mytextarea" placeholder ="contenu" name ="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea></p>
+            <textarea id="mytextarea" placeholder ="contenu" name ="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea>
         </div>
-            <button class="formButton" type="submit" value ="Supprimer">Supprimer le chapître <?= $post->getTitle();?></button>
+        <button class="formButton" type="submit" value ="Supprimer">Supprimer le chapitre <?= $post->getTitle();?></button>
     </form>
 </div>
 <script>

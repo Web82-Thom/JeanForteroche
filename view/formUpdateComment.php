@@ -8,7 +8,7 @@
             <h2 id="formTitle">Modification de commentaire</h2>    
             <div class="labelTitle">
                 <h3><label for="author">Auteur</label></h3>
-                <p><input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/></p>
+                <input type="text" id="author" name="author" <?php echo 'value="' . $comment->getAuthor() . '"'; ?>/>
             </div>
             <div class="labelContent">
                 <h3><label for="comment">Commentaire</label></h3>

@@ -1,0 +1,36 @@
+h1 {
+    font-size: 60px;
+}
+#titleBook {
+    font-size: 35px;
+}
+#menu {
+    height: 50px;
+}
+#menu li {
+    font-size: 25px;
+}
+#sousMenu li {
+    font-size: 20px;
+}
+#contentPresentation, #library {
+    flex-direction: column;
+    align-items: center;
+}
+#photoAuthor {
+    margin-top: 20px;
+    width: 100%;
+}
+#oneLibrary {
+    flex-direction: column;
+}
+#contentText {
+    width: 80%;
+    padding: 0;
+}
+#infosBookOne {
+    width: 80%;
+}
+td {
+    padding: 0px;
+}
