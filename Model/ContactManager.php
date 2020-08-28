@@ -29,7 +29,7 @@ class ContactManager
                 </html>
                 ';
 
-                mail("thom.orta@gmail.com", "CONTACT - jf-blog.com", $message, $header);
+                mail("thomasorta.forweb@gmail.com", "CONTACT - jf-blog.com", $message, $header);
                 echo "Votre message a bien été envoyé !";
             }
             else
