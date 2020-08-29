@@ -32,6 +32,8 @@ class AdminController
                 if ($_POST['email'] == $admin->getEmail() && $_POST['password'] == $admin->getPass()) {
                     $_SESSION['pseudo'] = $admin->getPseudo();
                     $_SESSION['firstAdmin'] = $admin->getFirstAdmin();
+                    $_SESSION['email'] = $admin->getEmail();
+                    
                     $this->_adminController->display();
 
                     require_once('../view/admin.php');
