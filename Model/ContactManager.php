@@ -30,12 +30,8 @@ class ContactManager
                 ';
 
                 mail("thomasorta.forweb@gmail.com", "CONTACT - jf-blog.com", $message, $header);
-                echo "Votre message a bien été envoyé !";
             }
-            else
-            {
-                echo "Tous les champs doivent être complétés !";
-            }
+            header('Location: index.php?objet=contact');
         }
     }
 }
