@@ -69,7 +69,7 @@
                             </td>
                             <td>
                                 <a class="adminLink" href="index.php?objet=post&amp;&action=delete&id=<?= $post->getId(); ?>">
-                                    <button class="buttonActionAdmin"><i class="fas fa-trash-alt"></button>
+                                    <button class="buttonActionAdmin"><i class="fas fa-trash-alt"></i></button>
                                 </a>
                             </td>
                         </tr>

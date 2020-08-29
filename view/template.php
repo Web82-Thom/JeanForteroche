@@ -11,6 +11,6 @@
         <?php include("menu.php") ?>
             <?= $content ?>
         <!--<?php //include("footer.php") ?>-->
-
+        
     </body>
 </html>

@@ -85,6 +85,7 @@ h2 {
     display: flex;
     margin-top: 20px;
     position: relative;
+    z-index: 20;
 }
 
 #menuNavigation {	
@@ -99,15 +100,23 @@ h2 {
     align-items: center;
 }
 
+#menuAdmin:hover > ul {
+    background-color:white;
+    padding: 5px;
+    display: block;
+}
+
 #sousMenu {
     display: none;
+    position: absolute;
     list-style-type: none;
     font-size: 15px;
 }
 
-#menuAdmin:hover > ul {
-    color: green;
-    display: block;
+#sousMenu a {
+    color: black;
+    font-size: 15px;
+    z-index: 5;
 }
 
 /*footer {

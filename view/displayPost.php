@@ -8,7 +8,9 @@
         <em class="dateInfos">publié le <?= $post->getCreationDate();?></em> 
     </div>
     <div class="postContent">
-        <p class="postText"><?= $post->getContent();?></p>
+        <p class="postText">
+            <?= $post->getContent();?>
+        </p>
     </div>
 </div>
 <div id="formAddComment">
