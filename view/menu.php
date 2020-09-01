@@ -5,33 +5,22 @@
 <nav id="menu">
     <ul id="menuNavigation">
         <li>
-            <a href="index.php?objet=home">
-                Présentation
-            </a>
+            <a href="index.php?objet=home">Présentation</a>
         </li>
         <li>
-            <a href="index.php?objet=post">
-                Liste des chapitres
-            </a>
+            <a href="index.php?objet=post">Liste des chapitres</a>
         </li>
         <li>
-            <a href="index.php?objet=contact">
-                Contact
-            </a>
+            <a href="index.php?objet=contact">Contact</a>
         </li>
-        <li id="menuAdmin">
-            <a href="index.php?objet=admin&action=login">
-                Admin
-            </a>
-            <ul id="sousMenu">
+        <li class="menuAdmin">
+            <a href="index.php?objet=admin&action=login">Admin</a>
+            <ul class="sousMenu">
                 <li>
-                    <a href="index.php?objet=admin&action=login">
-                        Se connecter</a></li>
-                <li><hr></li>
+                    <a href="index.php?objet=admin&action=destroy"><?php if (isset($_SESSION['firstAdmin'])) {echo 'Se déconnecter';} ?></a>
+                </li>
                 <li>
-                    <a href="index.php?objet=admin&action=destroy">
-                        Se déconnecter
-                    </a>
+                    <a href="index.php?objet=admin&action=login"><?php if (!isset($_SESSION['firstAdmin'])) {echo 'Se connecter';}?></a>
                 </li>
             </ul>
         </li>
