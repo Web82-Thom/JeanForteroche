@@ -1,5 +1,5 @@
 <head>
-	<title>Jean-Forteroche</title>
+	<title><?= $title ?></title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<!-- encodage des caractères du document -->
 	<meta charset="utf-8" />
@@ -7,8 +7,9 @@
 	<meta http-equiv="refresh" content="3600" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<!-- @Media-Query -->
-	<link rel="stylesheet" media="screen and (max-width: 1024px)" href="css/1024resolution.css"  type="text/css" />
-	<link rel="stylesheet" media="screen and (max-width: 700px)" href="css/700resolution.css"  type="text/css" />
+	<link rel="stylesheet" media="screen and (max-width: 1024px)" href="css/1024resolution.css" type="text/css" />
+	<link rel="stylesheet" media="screen and (max-width: 700px)" href="css/700resolution.css" type="text/css" />
+	<link rel="stylesheet" media="screen and (max-width: 400px)" href="css/400resolution.css" type="text/css" />
 	<!-- viewport ecran mobile -->
 	<!-- La largeur de mon site = largeur de l'appareil -->
 	<meta name="viewport" content="width=device-width initial-scale=1.0" />
