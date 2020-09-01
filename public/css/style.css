@@ -58,7 +58,9 @@ h1 {
     color: white;
     margin-bottom: 0;
 }
-
+.titleSection {
+    display: none;
+}
 #titleBook {
     display: flex;
     justify-content: space-around;
@@ -76,8 +78,6 @@ h2 {
 }
 
 #menu {
-    background-color: black;
-    opacity: 0.6;
     background-color: black;
     opacity: 0.6;
     width: 100%;
@@ -100,46 +100,24 @@ h2 {
     align-items: center;
 }
 
-#menuAdmin:hover > ul {
+.menuAdmin:hover > ul {
     background-color:white;
     padding: 5px;
     display: block;
 }
 
-#sousMenu {
+.sousMenu {
     display: none;
     position: absolute;
     list-style-type: none;
     font-size: 15px;
 }
 
-#sousMenu a {
+.sousMenu a {
     color: black;
     font-size: 15px;
     z-index: 5;
 }
-
-/*footer {
-    background-color: black;
-    opacity: 0.6;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    margin-top: 20px;
-    position: absolute;
-    bottom: 0;
-}
-
-#menuFooter {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-    color: white;
-    width: 80%;
-    margin: auto;
-    padding: 0;
-}*/
 
 a:hover {	
     text-decoration: none;	
@@ -350,11 +328,21 @@ a {
 }
 
 #formAddComment p {
-    text-align: center;    
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 #citation {
+    border: 1px solid black;
+    border-radius: 5px;
     text-align: center;
+    flex-direction: column;
+    margin: auto;
+    display: flex;
+    width: 65%;
+    margin-bottom: 20px;
+    padding: 5px;
 }
 
 #formTitle {
@@ -367,12 +355,28 @@ a {
     
 }
 
+#formContent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
 .dateInfos {
     padding: 10px;
     font-size: 14px;
+    font-style: italic;
 }
 
-
+#submitComment {
+    width: 344px;
+    font-size: 15px;
+    padding: 5px;
+    margin: 20px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #B7C9F3;
+}
 
 #AllCommentDisplay {
     margin-bottom: 10px;
@@ -486,6 +490,10 @@ a {
     flex-direction: column;
     width: 80%;
     margin: auto;
+}
+
+#report {
+    color: green;
 }
 
 #reportSignal {
@@ -637,18 +645,60 @@ td{
     padding: 10px;
     padding-top: 0;
     padding-bottom: 0;
+    margin-bottom: 20px;
 }
 #mytextarea {
     width: 100%;
     height: 200px;
 }
 
-.formButton {
+#formButton {
     display: flex;
     margin: auto;
     margin-bottom: 20px;
     width: auto;
     padding: 10px;
     border-radius: 10px 0 10px 0;
-    
+}
+/*
+*
+*       footer.php
+*
+*/
+footer {
+    background-color: black;
+    opacity: 0.6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    /*position: absolute;
+    bottom: 0;*/
+}
+
+#menuFooter {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    font-size: 25px;
+}
+
+#webCreator {
+    color: white;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+#infosFooter {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
 }
