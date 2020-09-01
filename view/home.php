@@ -4,7 +4,7 @@
 
 <section id="contentPresentation">
     <div id="photoAuthor">
-        <img src="images\photoAuthor.jpg" alt="JeanForteroche" class="photoAuthor" />
+        <img src="images/photoAuthor.jpg" alt="JeanForteroche" class="photoAuthor" />
     </div>
     <div id="contentText">
         <h3>A propos de moi ...</h3>
@@ -20,7 +20,7 @@
     <h3>"Billet simple pour l'Alaska"</h3>
     <div id="oneLibrary">
         <div id="photoBook">
-                <img src="images\librairie2.jpg" alt="Billet simple pour l'Alaska" class="imgBook">
+            <img src="images/librairie2.jpg" alt="Billet simple pour l'Alaska" class="imgBook">
         </div>
         <div id="infosBookOne">
             <h4>Résumé</h4>
@@ -35,9 +35,7 @@
 </section>
 
 <?php 
-
-$content = ob_get_clean(); 
-
-require_once("template.php"); 
-
+    $content = ob_get_clean(); 
+    
+    require_once("template.php"); 
 ?>
