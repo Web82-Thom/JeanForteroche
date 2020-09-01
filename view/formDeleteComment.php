@@ -14,7 +14,7 @@
                 <h3><label for="comment">Commentaire</label><br /></h3>
                 <textarea id="mytextarea" name="comment"><?= $comment->getComment(); ?></textarea>
             </div>
-            <button class="formButton" type="submit" value="Supprimer le commentaire">Supprimer le commentaire</button>
+            <button id="formButton" type="submit" value="Supprimer le commentaire">Supprimer le commentaire</button>
         </form>
     </div>
 <?php } ?>

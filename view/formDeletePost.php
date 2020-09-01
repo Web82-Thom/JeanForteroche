@@ -13,7 +13,7 @@
             <h3><label for="content">Contenu :</label></h3>
             <textarea id="mytextarea" placeholder ="contenu" name ="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea>
         </div>
-        <button class="formButton" type="submit" value ="Supprimer">Supprimer le chapitre <?= $post->getTitle();?></button>
+        <button id="formButton" type="submit" value ="Supprimer">Supprimer le chapitre <?= $post->getTitle();?></button>
     </form>
 </div>
 <script>

@@ -35,7 +35,7 @@ class AdminController
                     $_SESSION['email'] = $admin->getEmail();
                     
                     $this->_adminController->display();
-
+                    
                     require_once('../view/admin.php');
                 } 
             };

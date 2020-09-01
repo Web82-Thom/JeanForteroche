@@ -2,25 +2,25 @@
 
 <?php ob_start(); ?>
 
-<div>
+<section>
+    <h2 class='titleSection'> Tous les chapitres</h2>
     <?php foreach ($posts as $post) { ?>
-        <div class="contentPosts">
+        <article class="contentPosts">
             <div class="titleTickets">
-                <h3 class="titleTicket"><a href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><?= $post->getTitle();?></h3></a> 
-                <p>
-                    <em class="dateInfos">publié le <?= $post->getCreationDate();?></em>
+                <h3 class="titleTicket"><a href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><?= $post->getTitle();?></a></h3>
+                <p class="dateInfos">
+                   publié le <?= $post->getCreationDate();?>
                 </p>
             </div>
             <div class="postContent">
                 <?= substr($post->getContent(),0 ,1000), '...' ;?>
             </div>
-            
-        </div> 
+        </article>
     <?php } ?>
-</div>
+</section>
 
 <?php 
-$content = ob_get_clean(); 
+    $content = ob_get_clean(); 
 
-require_once('template.php');
+    require_once('template.php');
 ?>

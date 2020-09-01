@@ -2,18 +2,22 @@
 
 <?php ob_start(); ?>
 
-<div class="contentPosts">
+
+
+<article class="contentPosts"> 
     <div class="titleTickets">
         <h3 class="titleTicket"><?= $post->getTitle(); ?></h3>
-        <em class="dateInfos">publié le <?= $post->getCreationDate();?></em> 
+        <p class="dateInfos">
+            publié le <?= $post->getCreationDate();?>
+        </p> 
     </div>
     <div class="postContent">
         <p class="postText">
             <?= $post->getContent();?>
         </p>
     </div>
-</div>
-<div id="formAddComment">
+</article>
+<section id="formAddComment">
     <h3 id="formTitle">Ajouter votre commentaires</h3>
     <p>
         Chères Lecteurs et Lectrices, je vous invite à partager vos commentaires. 
@@ -21,10 +25,10 @@
     <div id="citation">
         <q>
             Le respect mutuel est le fondement de la véritable harmonie.
-            <em>
-                - Dalaï Lama -
-            </em>
         </q>
+        <em>
+            - Dalaï Lama -
+        </em>
     </div>
     <form id="formContent" method="post" action="index.php?objet=post&action=addComment&id=<?= $postId ?>">
         <div>
@@ -36,25 +40,28 @@
             <textarea id="comment" name="comment"></textarea>
         </div>
         <div>
-            <button type="submit">Poster votre commentaire</button>
+            <button id="submitComment" type="submit">Poster votre commentaire</button>
         </div>
     </form>
-</div>
-<div id="AllCommentDisplay">
+</section>
+<section id="AllCommentDisplay">
+<h2 class='titleSection'> Tous les commentaires</h2>
     <?php foreach ($comments as $comment) { ?>
         <div id="commentDisplay">
             <div id="commentAuthorContent">
                 <p id="commentAuthor">
                     <strong><?= htmlspecialchars($comment->getAuthor()); ?></strong>
                 </p>
-                <em class="dateInfos">publié le <?= $comment->getCommentDate(); ?></em>
+                <p class="dateInfos">
+                    publié le <?= $comment->getCommentDate(); ?>
+                </p>
             </div>
             <p id="commentContent">
                 <?= htmlspecialchars($comment->getComment()); ?>
             </p>
             <div id="actionComment">
                 <p>
-                    <a class="adminLink" href="index.php?objet=post&action=reportComment&id=<?= $comment->getId() ; ?>&postId= <?= $post->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));" onclick="window.location.reload(false)" ><?php if ($comment->getReport() == 1) { echo ''; } else { echo 'Signaler';} ?></a>
+                    <a id="report" class="adminLink" href="index.php?objet=post&action=reportComment&id=<?= $comment->getId() ; ?>&postId=<?= $post->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?')); window.location.reload(false)" ><?php if ($comment->getReport() == 1) { echo ''; } else { echo 'Signaler';} ?></a>
                 </p>
                 <p>
                     <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>"><?php if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1) { echo 'Modifier'; } else { echo '';} ?></a>
@@ -65,12 +72,13 @@
             </div>    
         </div>
     <?php } ?>
-</div>
-    
-
+</section>
        
 <?php 
-$content = ob_get_clean(); 
+    $content = ob_get_clean(); 
 
-require_once('template.php');
+    require_once('template.php');
 ?>
+
+<script src="js/formAddComment.js"></script>
+<script src="js/main.js"></script>

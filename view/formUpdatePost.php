@@ -13,7 +13,7 @@
 			<h3><label for="content">Contenu :</label></h3>
 			<textarea id="mytextarea" placeholder ="Rédiger votre chapitre" name ="content"><?php if (isset($post)) {echo $post->getContent();} ?></textarea>
 		</div>
-			<button class="formButton" type="submit" value ="Poster les modification">Poster les modification</button>
+			<button id="formButton" type="submit" value ="Poster les modification">Poster les modification</button>
 	</form>
 </div>
 

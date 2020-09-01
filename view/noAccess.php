@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <div id="echoAccess">
-    <?php echo 'Seul les administrateur peuvent acceder à la page Admin.'; ?>
+    <?php echo 'Seul les administrateurs peuvent accéder à la page Admin.'; ?>
 </div>
     
 <?php

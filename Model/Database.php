@@ -4,7 +4,6 @@ namespace Model;
 
 use PDO;
 
-//abstract ne peut pas etres instancier
 abstract class Database
 {
     private static $_dataBase;
@@ -14,7 +13,6 @@ abstract class Database
     {
         require_once('../config/database.php');
 
-        //self::$_dataBase = $_dataBase;
         self::$_dataBase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 

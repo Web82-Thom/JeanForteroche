@@ -26,7 +26,7 @@ class CommentController
             }
 
             throw new Exception('Impossible d\'ajouter le commentaire !');
-        }
+        } 
         header('Location: index.php?objet=post&id=' . $postId);
     }
 
@@ -39,7 +39,7 @@ class CommentController
                     header('Location: index.php?objet=admin');
                 }
 
-                throw new Exception('Impossible d\'ajouter le commentaire !');
+                throw new Exception('Impossible de supprimer le commentaire !');
             }
             $comments = $this->_commentManager->getComment($commentId);
 
