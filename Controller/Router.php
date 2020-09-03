@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class Router extends PostController
+class Router
 {   
     private $_postController;
     private $_commentController;

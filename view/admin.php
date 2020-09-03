@@ -16,7 +16,7 @@
         </p>
     </div>
     <div class="blockAdmin">
-        <h3>Modifier ou suprimer un chapitre</h3>
+        <h3>Lire, modifier ou supprimer un chapitre</h3>
         <div>
             <table >
                 <thead>

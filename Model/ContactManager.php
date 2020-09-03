@@ -19,12 +19,13 @@ class ContactManager
                 <html>
                     <body>
                         <div align="center">
-                            <u>Nom et prenom de l\'expéditeur :</u>' . $_POST['name'] . ' ' . $_POST['firstName'] .'<br />
-                            <u>Mail de l\'expéditeur :</u>' . $_POST['email'].'<br />
+                            <u>Nom et prenom de l\'expéditeur : </u>' . htmlspecialchars($_POST['name']) .' ' . htmlspecialchars($_POST['firstName']) .'<br />
+                            <u>Mail de l\'expéditeur : </u>' . $_POST['email'].'
                             <br />
-                            '.nl2br($_POST['title']).'
-                            < /br>
-                            '.nl2br($_POST['message']).'
+                            <hr>
+                            <u>Titre : </u>'. htmlspecialchars(nl2br($_POST['title'])) .'
+                            <br />
+                            <u>Contenu du message : </u>'. htmlspecialchars(nl2br($_POST['message'])) .'
                             <br />
                         </div>
                     </body>

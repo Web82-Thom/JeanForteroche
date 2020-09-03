@@ -8,18 +8,6 @@ use Model\AdminManager;
 
 class AdminController
 {   
-    public function display()
-    {   
-        $this->_postManager = new PostManager();
-        $posts = $this->_postManager->getPosts();
-        $this->_commentManager = new CommentManager();
-        $comments = $this->_commentManager->getComments();
-        $this->_adminManager = new adminManager();
-        $admins = $this->_adminManager->getAdmins();
-        
-        require_once('../view/admin.php');
-    }
-    
     // TRAITEMENT DU LOGIN
     public function login()
     {   
@@ -52,5 +40,17 @@ class AdminController
         session_destroy();
 
         require_once('../view/adminLogin.php');
+    }
+
+    public function display()
+    {   
+        $this->_postManager = new PostManager();
+        $posts = $this->_postManager->getPosts();
+        $this->_commentManager = new CommentManager();
+        $comments = $this->_commentManager->getComments();
+        $this->_adminManager = new adminManager();
+        $admins = $this->_adminManager->getAdmins();
+        
+        require_once('../view/admin.php');
     }
 }

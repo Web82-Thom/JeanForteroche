@@ -22,15 +22,6 @@ class PostManager extends Database
         return $post;
     }
 
-    //METHODE POUR RECUPERER 1 POSTS
-    public function getPost($postId)
-    {
-        $req = $this->getDataBase()->prepare('SELECT id, title, content, DATE_FORMAT(creationDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS creationDate FROM posts WHERE id = ?');
-        $req->execute(array($postId));
-
-        return $this->hydrate($req->fetch(PDO::FETCH_ASSOC));
-    }
-    
     //METHODE POUR RECUPERER LES POSTS
     public function getPosts()
     {
@@ -45,6 +36,15 @@ class PostManager extends Database
         return $posts;
     }
 
+    //METHODE POUR RECUPERER 1 POSTS
+    public function getPost($postId)
+    {
+        $req = $this->getDataBase()->prepare('SELECT id, title, content, DATE_FORMAT(creationDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS creationDate FROM posts WHERE id = ?');
+        $req->execute(array($postId));
+
+        return $this->hydrate($req->fetch(PDO::FETCH_ASSOC));
+    }
+    
     // METHODE AJOUT D'UN POSTE
     public function add($title, $content)
     {

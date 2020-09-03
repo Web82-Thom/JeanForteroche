@@ -16,6 +16,14 @@ class PostController
         $this->_commentManager = new CommentManager();
     }
 
+    // RECUPERATION DE TOUS LES POSTS
+    public function displayPosts()
+    {   
+        $posts = $this->_postManager->getPosts();
+
+        require_once('../view/displayPosts.php');
+    }
+
     // RECUPERATION D'UN POST
     public function display($postId)
     {
@@ -23,14 +31,6 @@ class PostController
         $comments = $this->_commentManager->getCommentsByPostId($postId);
 
         require_once('../view/displayPost.php');
-    }
-
-    // RECUPERATION DE TOUS LES POSTS
-    public function displayPosts()
-    {   
-        $posts = $this->_postManager->getPosts();
-
-        require_once('../view/displayPosts.php');
     }
 
     // AJOUT D'UN POST

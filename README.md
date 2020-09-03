@@ -17,7 +17,7 @@
     <li>Update ….......................................................(ok)</li>
     <li>Delete …........................................................( ok )</li>
     <li>Report / unReport.................................................(ok)</li>
-    <li>installer WISIWYG TinyMce ….........................(x)</li>
+    <li>installer WISIWYG TinyMce ….........................(ok)</li>
 </ul>
 
 <h2>PAGE ACCEUIL</h2>
@@ -28,7 +28,6 @@
 <h2>PAGE LISTE DES BILLETS</h2>
 <ul>
     <li>affichage de tous les billets.................................. (ok)</li>
-    <li>affichage compresser............................................(X)</li>
 </ul>
 
 <h2>AFFICHAGE D'UN BILLET</h2>
@@ -42,5 +41,5 @@
 <h2>PAGE CONTACT ….............................................(ok)</h2>
 <ul>    
     <li>Formulaire de contact..................................(ok)</li>
-    <li>envoie du formulaire sur la boite Mail.................(en local ok avec sendmail.exe)</li>
+    <li>envoie du formulaire sur la boite Mail.................(ok)</li>
 </ul>

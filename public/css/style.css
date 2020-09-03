@@ -35,7 +35,7 @@
 }
 
 body {
-    background-image: url("../images/bienvenue.jpg");
+    background-image: url("../images/backgroundAlaska.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -148,7 +148,7 @@ a {
     align-items: center;
 }
 
-#photoAuthor {
+#jeanForteroche {
     display: flex;
     width: 50%;
     position: relative;
@@ -268,6 +268,7 @@ a {
 .titleTickets {
     background-color: #B7C9F3;
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
     border-bottom: 2px solid black;
@@ -363,19 +364,21 @@ a {
 }
 
 .dateInfos {
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0;
     font-size: 14px;
     font-style: italic;
 }
 
 #submitComment {
-    width: 344px;
+    width: 60%;
     font-size: 15px;
     padding: 5px;
     margin: 20px;
     margin: auto;
     border-radius: 5px;
-    background-color: #B7C9F3;
+    background-color: #90abea;
 }
 
 #AllCommentDisplay {
@@ -386,6 +389,7 @@ a {
     background-color: #B7C9F3;
     margin: 0px;
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
 }
@@ -396,11 +400,12 @@ a {
 }
 
 #commentAuthor strong {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 #commentContent {
     padding-left: 5%;
+    font-size: 15px;
 }
 
 #comment {
@@ -445,7 +450,15 @@ a {
     right: 10%;
     top: 10%;
     margin-top: 20px;
-    text-align: center;
+}
+
+#formContactInput { 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#formContactInput input {
+    margin-bottom: 10px;
 }
 
 #inputContact {
@@ -461,7 +474,7 @@ a {
 }
 
 #inputContactMessage {
-    width: 80%;
+    width: 100%;
 }
 
 #buttonSend {
@@ -655,10 +668,12 @@ td{
 #formButton {
     display: flex;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     width: auto;
     padding: 10px;
-    border-radius: 10px 0 10px 0;
+    border-radius: 5px;
+    background-color: #90abea;
 }
 /*
 *
@@ -672,8 +687,6 @@ footer {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    /*position: absolute;
-    bottom: 0;*/
 }
 
 #menuFooter {
@@ -682,7 +695,8 @@ footer {
     justify-content: space-around;
     font-weight: bold;
     width: 100%;
-    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 0;
     align-items: center;
     font-size: 25px;

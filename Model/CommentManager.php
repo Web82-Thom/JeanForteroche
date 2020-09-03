@@ -21,6 +21,20 @@ class CommentManager extends Database
         return $comment;
     }
 
+    //RECUPERATION DES COMMENTAIRES PAR LE POST ID
+    public function getCommentsByPostId($postId)
+    {
+        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS commentDate FROM comments WHERE postId = ? ORDER BY commentDate DESC ');
+        $req->execute(array($postId));
+        $comments = [];
+        while($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = $this->hydrate($data);
+        }
+        $req->closeCursor();
+        
+        return $comments;
+    }
+
     // RECUPERATION D'UN COMMENTAIRE
     public function getComment($commentId)
     {
@@ -40,20 +54,6 @@ class CommentManager extends Database
     {
         $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em>à %Hh%imin\') AS commentDate FROM comments ORDER BY commentDate DESC /*LIMIT 5*/ ');
         $req->execute();
-        $comments = [];
-        while($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $comments[] = $this->hydrate($data);
-        }
-        $req->closeCursor();
-        
-        return $comments;
-    }
-
-    //RECUPERATION DES COMMENTAIRES PAR LE POST ID
-    public function getCommentsByPostId($postId)
-    {
-        $req = $this->getDataBase()->prepare('SELECT id, author, comment, report, postId, DATE_FORMAT(commentDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS commentDate FROM comments WHERE postId = ? ORDER BY commentDate DESC /*LIMIT 5*/ ');
-        $req->execute(array($postId));
         $comments = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = $this->hydrate($data);

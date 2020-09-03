@@ -2,8 +2,6 @@
 
 <?php ob_start(); ?>
 
-
-
 <article class="contentPosts"> 
     <div class="titleTickets">
         <h3 class="titleTicket"><?= $post->getTitle(); ?></h3>

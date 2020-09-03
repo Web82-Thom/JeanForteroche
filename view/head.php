@@ -20,7 +20,7 @@
 	<!-- description de la page web -->
 	<meta name="description" content="Blog Jean Forteroche 'Billet simple pour l'Alaska'" />
 	<!-- pour les moteurs de recherches -->
-	<meta name="keywords" content="blog, Jean, Forteroche, billet, Alsaka" />
+	<meta name="keywords" content="blog, Jean, Forteroche, billet, Alsaka, Jean Forteroche, billet simple pour l'alaska" />
 	<!-- Créateur du site -->
 	<meta name="author" content="ORTA Thomas" />
 	<!-- Cela permet aux éditeurs du logiciel de faire des statistiques IBM -->
@@ -30,12 +30,12 @@
 	<!-- protocole Open Graph -->
 	<meta property="og:title" content="Jean Forteroche" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="......." />
+	<meta property="og:image" content="public/images/logoOpenGraph.png" />
 	<meta property="og:url" content="jf-blog.com" />
 	<meta property="og:description" content="Blog Jean Forteroche 'Billet simple pour l'Alaska" />
 	<meta property="og:site_name" content="Jean Forteroche" />
 	<!-- contrôler la façon dont les moteurs de recherches explorent et indexent une page -->
-	<meta name="robots" content="none" />
+	<meta name="robots" content="noindex" />
 	<!-- lien tinyMce -->
 	<script src="https://cdn.tiny.cloud/1/zlz60md847scmftjlvg9i0ekftezuwbh8yqp2v076ujm04oe/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script src="https://kit.fontawesome.com/67cbdf618e.js" crossorigin="anonymous"></script>

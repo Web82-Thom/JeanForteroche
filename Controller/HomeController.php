@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-use Model\PostManager;
-
 class HomeController
 {
     public function displayHome()
