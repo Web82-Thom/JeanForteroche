@@ -12,26 +12,24 @@ class AdminController
     public function login()
     {   
         $this->_adminManager = new adminManager(); 
-        $this->_adminController = new AdminController();
-
         if (!empty($_POST['email']) && !empty($_POST['password'])) { 
             $admins = $this->_adminManager->getAdmins();
             foreach ($admins as $admin) {
-                if ($_POST['email'] == $admin->getEmail() && $_POST['password'] == $admin->getPass()) {
+                if ($_POST['email'] === $admin->getEmail() && password_verify($_POST['password'], $admin->getPass())) {
                     $_SESSION['pseudo'] = $admin->getPseudo();
                     $_SESSION['firstAdmin'] = $admin->getFirstAdmin();
                     $_SESSION['email'] = $admin->getEmail();
                     
-                    $this->_adminController->display();
+                    $this->display();
                     
                     require_once('../view/admin.php');
                 } 
             };
         } elseif (isset($_SESSION['firstAdmin'])) {
-            $this->_adminController->display();
+            $this->display();
 
             require_once('../view/admin.php');
-        }  
+        } 
         require_once('../view/adminLogin.php');
     }
 
