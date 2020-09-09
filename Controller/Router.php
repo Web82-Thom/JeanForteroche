@@ -13,7 +13,7 @@ class Router
         try {   
             // DETERMINE L'ACTION DE L'UTILISATEUR 
             if (isset($_GET['objet'])) {
-                //$url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
+                //$url = explode('/', filter_var_array($_GET['url'], FILTER_SANITIZE_URL));
                 //AFFICHAGE DES BILLETS
                 if ($_GET['objet'] === 'post') {
                     $postController = new PostController();
