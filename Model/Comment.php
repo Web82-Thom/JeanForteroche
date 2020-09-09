@@ -6,10 +6,10 @@ namespace Model;
 class Comment  
 {
     private $_id;
-    private $_postId;
+    private $_post_id;
     private $_author;
     private $_comment;
-    private $_commentDate;
+    private $_comment_date;
     private $_report;
    
     //SETTER
@@ -17,41 +17,58 @@ class Comment
     {
         $id = (int) $id;
 
-        if($id > 0)
+        if ($id > 0) {
             $this->_id = $id;
+        }
+
+        return $this;
     }
 
-    public function setPostId($postId)
+    public function setPost_id($postId)
     {
         $postId = (int) $postId;
 
-        if($postId > 0)
-            $this->_postId = $postId;
+        if ($postId > 0) {
+            $this->_post_id = $postId;
+        }
+
+        return $this;
     }
 
     public function setAuthor($author)
     {
-        if(is_string($author))
+        if (is_string($author)) { 
             $this->_author = $author;
+        }
+
+        return $this;
     }
 
     public function setComment($comment)
     {
-        if(is_string($comment))
+        if (is_string($comment)) { 
             $this->_comment = $comment;
+        }
+
+        return $this;
     }
 
-    public function setCommentDate($commentDate)
+    public function setComment_date($commentDate)
     {
-        $this->_commentDate = $commentDate;
+        $this->_comment_date = $commentDate;
+
+        return $this;
     }
 
     public function setReport($report)
     {
         $report = (int) $report;
 
-        if($report >= 0)
+        if ($report >= 0) { 
             $this->_report = $report;
+        }
+
+        return $this;
     }
     
     //GETTERS RECUPER LES DONNEES
@@ -62,7 +79,7 @@ class Comment
 
     public function getPostId()
     {
-        return $this->_postId;
+        return $this->_post_id;
     }
 
     public function getAuthor()
@@ -77,7 +94,7 @@ class Comment
 
     public function getCommentDate()
     {
-        return $this->_commentDate;
+        return $this->_comment_date;
     }
 
     public function getReport()
