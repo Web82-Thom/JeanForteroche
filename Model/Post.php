@@ -8,29 +8,41 @@ class Post
     private $_id;
     private $_title;
     private $_content;
-    private $_creationDate;
+    private $_creation_date;
    
     //SETTER
     public function setId($id)
     {
         $id = (int) $id;
 
-        if($id > 0)
+        if ($id > 0) {
             $this->_id = $id;
+        }
+
+        return $this;
     }
+
     public function setTitle($title)
     {
-        if(is_string($title))
+        if (is_string($title)) { 
             $this->_title = $title;
+        }
+
+        return $this;
     }
+
     public function setContent($content)
     {
-        if(is_string($content))
+        if (is_string($content)) { 
             $this->_content = $content;
+        }
+
+        return $this;
     }
-    public function setCreationDate($creationDate)
+
+    public function setCreation_date($creationDate)
     {
-        $this->_creationDate = $creationDate;
+        $this->_creation_date = $creationDate;
     }
     
     //GETTERS RECUPER LES DONNEES
@@ -38,16 +50,19 @@ class Post
     {
         return $this->_id;
     }
+
     public function getTitle()
     {
         return $this->_title;
     }
+
     public function getContent()
     {
         return $this->_content;
     }
+
     public function getCreationDate()
     {
-        return $this->_creationDate;
+        return $this->_creation_date;
     }
 }
