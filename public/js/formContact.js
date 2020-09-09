@@ -28,8 +28,8 @@ class FormContact {
             localStorage.setItem('name', name);
             localStorage.setItem('firstName', firstName);
 
-            alert('Votre message à été envoyer avec succes!');
             document.getElementById("formContent").submit();
+            alert('Votre message à été envoyer avec succes!');
         } else {
             alert('Veuillez remplir tous les champs correctement.');
         }
