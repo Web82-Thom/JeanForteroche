@@ -48,8 +48,8 @@
                             <td>
                                 <a class="adminLink" href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><?= $post->getTitle(); ?></a>
                             </td>
-                            <td id="aaa">
-                                <a class="adminLink" href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><?= substr( $post->getContent(),0, 210), '...'; ?></a>
+                            <td>
+                                <a class="adminLink" href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><?= substr( $post->getContent(),0, 50), '...'; ?></a>
                             </td>
                             <td>
                                 <a class="adminLink" href="index.php?objet=post&amp;id=<?= $post->getId(); ?>"><button class="buttonActionAdmin"><i class="fab fa-readme"></i></button></a>
