@@ -13,8 +13,9 @@ class AdminManager extends Database
         foreach($data as $key => $value)
         {
             $method = 'set'.ucfirst($key);
-            if(method_exists($admin, $method))
-            $admin->$method($value);
+            if (method_exists($admin, $method)) {
+                $admin->$method($value);
+            }
         }
         
         return $admin;
@@ -23,7 +24,7 @@ class AdminManager extends Database
     // RECUPEARATION DES ADMINISTRATEURS
     public function getAdmins()
     {
-        $req = $this->getDataBase()->prepare('SELECT * FROM admins');
+        $req = $this->getDataBase()->prepare('SELECT * FROM admins');// mettre tous le noms des champs
         $req->execute(array());
         $admins = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
