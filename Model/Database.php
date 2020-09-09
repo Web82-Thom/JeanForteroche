@@ -19,9 +19,10 @@ abstract class Database
     //RECUPERE LA CONNEXION A LA BASE DE DONNEE
     protected function getDataBase()
     {
-        if(self::$_dataBase == null)
+        if (self::$_dataBase == null) { 
             $this::setDataBase();
-
-            return self::$_dataBase;
+        }
+            
+        return self::$_dataBase;
     }
 }
