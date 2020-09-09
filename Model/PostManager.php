@@ -15,8 +15,9 @@ class PostManager extends Database
         foreach($data as $key => $value)
         {
             $method = 'set'.ucfirst($key);
-            if(method_exists($post, $method))
-            $post->$method($value);
+            if (method_exists($post, $method)) { 
+                $post->$method($value);
+            }
         }
 
         return $post;
@@ -25,7 +26,7 @@ class PostManager extends Database
     //METHODE POUR RECUPERER LES POSTS
     public function getPosts()
     {
-        $req = $this->getDataBase()->prepare(' SELECT id, title, content, DATE_FORMAT(creationDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS creationDate FROM posts ');
+        $req = $this->getDataBase()->prepare(' SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS creation_date FROM posts ');
         $req->execute();
         $posts = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -39,7 +40,7 @@ class PostManager extends Database
     //METHODE POUR RECUPERER 1 POSTS
     public function getPost($postId)
     {
-        $req = $this->getDataBase()->prepare('SELECT id, title, content, DATE_FORMAT(creationDate, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS creationDate FROM posts WHERE id = ?');
+        $req = $this->getDataBase()->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y <em>à</em> %Hh%imin\') AS creation_date FROM posts WHERE id = ?');
         $req->execute(array($postId));
 
         return $this->hydrate($req->fetch(PDO::FETCH_ASSOC));
@@ -48,7 +49,7 @@ class PostManager extends Database
     // METHODE AJOUT D'UN POSTE
     public function add($title, $content)
     {
-        $req = $this->getDataBase()->prepare('INSERT INTO posts (title, content, creationDate) VALUES(?, ?, NOW())');
+        $req = $this->getDataBase()->prepare('INSERT INTO posts (title, content, creation_date) VALUES(?, ?, NOW())');
         $req->execute(array($title, $content));
 
         $req = $this->getDataBase()->prepare('SELECT LAST_INSERT_ID();');
@@ -60,7 +61,7 @@ class PostManager extends Database
     // METHODE DE MODIFICATION D'UN POST
     public function update($postId, $title, $content)
     {
-        $req = $this->getDataBase()->prepare('UPDATE posts SET title = ?, content = ?, creationDate = NOW() WHERE id = ? LIMIT 1');
+        $req = $this->getDataBase()->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ? LIMIT 1');
 
         return $req->execute(array($title, $content, $postId));
     }   
@@ -69,7 +70,7 @@ class PostManager extends Database
     public function delete($postId)
     {   
         $req = $this->getDataBase()->prepare('DELETE FROM posts WHERE id = ?');
-
+        
         return $req->execute(array($postId));
     }
 }
