@@ -14,9 +14,9 @@
 	<!-- La largeur de mon site = largeur de l'appareil -->
 	<meta name="viewport" content="width=device-width initial-scale=1.0" />
 	<!-- affichage Icon-Apple -->
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
-	<link rel="apple-touch-icon" href="apple-touch-icon-144-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-144-precomposed.png" />
+	<link rel="icon" type="image/x-icon" href="jeanForteroche.ico" />
+	<link rel="apple-touch-icon" href="apple-touch-icon-114-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-114-precomposed.png" />
 	<!-- description de la page web -->
 	<meta name="description" content="Blog Jean Forteroche 'Billet simple pour l'Alaska'" />
 	<!-- pour les moteurs de recherches -->
@@ -29,8 +29,8 @@
 	<meta name="copyright" content="Web@82" />
 	<!-- protocole Open Graph -->
 	<meta property="og:title" content="Jean Forteroche" />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="public/images/logoOpenGraph.png" />
+	<meta property="og:type" content="Blog" />
+	<meta property="og:image" content="http://jf-blog.com/images/logoOpenGraph.png" />
 	<meta property="og:url" content="jf-blog.com" />
 	<meta property="og:description" content="Blog Jean Forteroche 'Billet simple pour l'Alaska" />
 	<meta property="og:site_name" content="Jean Forteroche" />
