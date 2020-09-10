@@ -13,10 +13,9 @@
                 </p>
             </div>
             <div class="postContent">
-                <?= substr($post->getContent(),0 ,1000), ' ' ;?>
+                <?= substr($post->getContent(),0 ,500), ' ' ;?>
                 
                 <a class="more" href="index.php?objet=post&amp;id=<?= $post->getId(); ?>">...afficher plus</a>
-                
             </div>
         </article>
     <?php } ?>
