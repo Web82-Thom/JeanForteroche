@@ -8,14 +8,14 @@
 			<a href="index.php?objet=contact">Contact</a>
 		</li>
 		<li class="menuAdmin">
-			<a href="index.php?objet=admin&action=login">Admin</a>
+			<a href="index.php?objet=admin&amp;action=login">Admin</a>
 			<ul class="sousMenu">
 				<li>
-				<a href="index.php?objet=admin&action=destroy"><?php if (isset($_SESSION['firstAdmin'])) {echo 'Se déconnecter';} ?></a>
+				<a href="index.php?objet=admin&amp;action=destroy"><?php if (isset($_SESSION['firstAdmin'])) {echo 'Se déconnecter';} ?></a>
 
 				</li>
 				<li>
-				<a href="index.php?objet=admin&action=login"><?php if (!isset($_SESSION['firstAdmin'])) {echo 'Se connecter';}?></a>
+				<a href="index.php?objet=admin&amp;action=login"><?php if (!isset($_SESSION['firstAdmin'])) {echo 'Se connecter';}?></a>
 				</li>
 			</ul>
 		</li>
