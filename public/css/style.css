@@ -625,6 +625,10 @@ td{
 .fa-trash-alt {
     color: red;
 }
+
+.alertDelete {
+    color: red;
+}
 /*
 *
 *       formAddPost.php
