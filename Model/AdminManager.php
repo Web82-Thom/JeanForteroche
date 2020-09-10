@@ -24,7 +24,7 @@ class AdminManager extends Database
     // RECUPEARATION DES ADMINISTRATEURS
     public function getAdmins()
     {
-        $req = $this->getDataBase()->prepare('SELECT * FROM admins');// mettre tous le noms des champs
+        $req = $this->getDataBase()->prepare('SELECT id, pseudo, email, pass, first_admin FROM admins');
         $req->execute(array());
         $admins = [];
         while($data = $req->fetch(PDO::FETCH_ASSOC)) {
