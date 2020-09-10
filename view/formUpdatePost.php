@@ -4,7 +4,7 @@
 
 <div id ="form">
 	<form method="post" action="index.php?objet=post&action=update&id=<?= $post->getId();?>">
-		<h2>Modification du chapitres</h2>
+		<h2>Modification du chapitre</h2>
 		<div class="labelTitle">
 			<h3><label for="title">Titre :</label></h3>
 			<input type="text" placeholder="Titre" name ="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>>
