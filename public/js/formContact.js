@@ -28,7 +28,7 @@ class FormContact {
             localStorage.setItem('name', name);
             localStorage.setItem('firstName', firstName);
 
-            document.getElementById("formContent").submit();
+            this.eventListenerMethode();
             alert('Votre message à été envoyer avec succes!');
         } else {
             alert('Veuillez remplir tous les champs correctement.');
