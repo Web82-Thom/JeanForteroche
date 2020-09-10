@@ -59,10 +59,10 @@
             </p>
             <div id="actionComment">
                 <p>
-                    <a id="report" class="adminLink" href="index.php?objet=post&action=reportComment&id=<?= $comment->getId() ; ?>&postId=<?= $post->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?')); window.location.reload(false)" ><?php if ($comment->getReport() == 1) { echo ''; } else { echo 'Signaler';} ?></a>
+                    <a id="report" class="adminLink" href="index.php?objet=post&amp;action=reportComment&id=<?= $comment->getId() ; ?>&postId=<?= $post->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?')); window.location.reload(false)" ><?php if ($comment->getReport() == 1) { echo ''; } else { echo 'Signaler';} ?></a>
                 </p>
                 <p>
-                    <a class="adminLink" href="index.php?objet=post&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>"><?php if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1) { echo 'Modifier'; } else { echo '';} ?></a>
+                    <a class="adminLink" href="index.php?objet=post&amp;action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>"><?php if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1) { echo 'Modifier'; } else { echo '';} ?></a>
                 </p>
                 <p id="reportSignal">
                     <?php if ($comment->getReport() == 1) { echo 'Commentaire signalé'; } ?>
@@ -71,12 +71,14 @@
         </div>
     <?php } ?>
 </section>
-       
+
+<script src="js/formAddComment.js"></script>
+<script src="js/main.js"></script>
+
 <?php 
     $content = ob_get_clean(); 
 
     require_once('template.php');
 ?>
 
-<script src="js/formAddComment.js"></script>
-<script src="js/main.js"></script>
+
