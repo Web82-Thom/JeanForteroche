@@ -43,6 +43,8 @@ class Post
     public function setCreation_date($creationDate)
     {
         $this->_creation_date = $creationDate;
+
+        return $this;
     }
     
     //GETTERS RECUPER LES DONNEES
