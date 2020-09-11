@@ -1,4 +1,5 @@
-<!DOCTYPE html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
         
     <?php include("head.php"); ?>
     
