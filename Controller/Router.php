@@ -43,7 +43,7 @@ class Router
                         } elseif ($_GET['action'] === 'unReportComment' && isset($_GET['id'])) {
                             $commentController->unReport($_GET['id']);
                         }
-                    //AFFICHAGE D'1 POST
+                    //AFFICHAGE D'1 POST ET SES COMMENTAIRES
                     } elseif (isset($_GET['id'])) {
                         $postController->display($_GET['id']);
                     // AFFICHAGE DE TOUS LES POST
