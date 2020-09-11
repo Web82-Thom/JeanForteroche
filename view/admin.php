@@ -106,7 +106,7 @@
                                 <a class="adminLink" href="index.php?objet=post&amp;&action=updateComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>"><button class="buttonActionAdmin"><i class="fas fa-keyboard"></i></button></a>
                             </td>
                             <td>
-                                <a class="adminLinkReport" href="index.php?objet=post&amp;&action=unReportComment&id=<?= $comment->getId(); ?>" onclick="window.location.reload(false)"><?php if ($comment->getreport() == 1)  echo 'ATTENTION, cliqué ici pour aprouver'; ?></a>
+                                <a class="adminLinkReport" href="index.php?objet=post&amp;&action=unReportComment&id=<?= $comment->getId(); ?>" onclick="window.location.reload(false)"><?php if ($comment->getreport() == 1)  echo 'ATTENTION, cliquez ici pour approuver'; ?></a>
                             </td>
                             <td>
                                 <a class="adminLinkDelete" href="index.php?objet=post&amp;&action=deleteComment&id=<?= $comment->getId(); ?>&postId=<?= $comment->getPostId(); ?>">

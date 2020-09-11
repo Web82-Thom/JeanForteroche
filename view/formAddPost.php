@@ -12,7 +12,7 @@
 
 <div id ="form">
 	<form method="post" action="index.php?objet=post&action=add">
-		<h2>Rédaction de vos chapîtres</h2>
+		<h2>Rédaction de vos chapitres</h2>
 		<div class="labelTitle">
 			<h3><label for="title">Titre :</label></h3>
 			<input type="text" placeholder="Indiquer le Titre" name ="title" <?php if (isset($post)) {echo 'value="' . $post->getTitle(). '"';} ?>>

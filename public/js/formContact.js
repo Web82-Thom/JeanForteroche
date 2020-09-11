@@ -1,6 +1,6 @@
 class FormContact {
     constructor() {
-        this.eventListenerMethode();
+        this.eventListenerMethod();
 
         document.getElementById('inputContactName').value = localStorage.getItem('name');
         document.getElementById('inputContactFirstName').value = localStorage.getItem('firstName');
@@ -8,7 +8,7 @@ class FormContact {
         document.getElementById('inputContactMessage').value = localStorage.getItem('message');
     }
 
-    eventListenerMethode() {
+    eventListenerMethod() {
         document.getElementById('formButton').addEventListener('click' , () => this.verification());
     }
 
@@ -28,7 +28,7 @@ class FormContact {
             localStorage.setItem('name', name);
             localStorage.setItem('firstName', firstName);
 
-            this.eventListenerMethode();
+            this.eventListenerMethod();
             alert('Votre message à été envoyer avec succes!');
         } else {
             alert('Veuillez remplir tous les champs correctement.');

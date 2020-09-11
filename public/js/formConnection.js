@@ -1,12 +1,12 @@
 class FormConnection {
     constructor() {
-        this.eventListenerMethode();
+        this.eventListenerMethod();
 
         document.getElementById('email');
         document.getElementById('password');
     }
 
-    eventListenerMethode() {
+    eventListenerMethod() {
         this.button = document.getElementById('formButton').addEventListener('click' , () => this.verification());
     }
 
@@ -15,7 +15,7 @@ class FormConnection {
         let password = document.getElementById('password').value;
 
         if (email !== "" && password !== "" ) {
-            this.eventListenerMethode();
+            this.eventListenerMethod();
         } else {
             alert('Veuillez remplir tous les champs correctement.');
         }

@@ -5,7 +5,7 @@
 <section id="formContact">
     <h2 class="titleSection">Formulaire de contact</h2>
     <form method="POST" action="index?objet=contact">
-        <h2>Contacter moi !</h2>
+        <h2>Contactez moi !</h2>
         <div id="formContactInput">
             <input id="inputContactName" type="text" name="name" placeholder="Nom" size="30"><br>
             <input id="inputContactFirstName" type="text" name="firstName" placeholder="Prénom" size="30"><br>

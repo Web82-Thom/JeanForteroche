@@ -1,12 +1,12 @@
 class FormAddComment {
     constructor() {
-        this.eventListenerMethode();
+        this.eventListenerMethod();
 
         document.getElementById('author');
         document.getElementById('comment');
     }
 
-    eventListenerMethode() {
+    eventListenerMethod() {
         document.getElementById('submitComment').addEventListener('click' , () => this.verification());
     }
 
@@ -15,7 +15,7 @@ class FormAddComment {
         let comment = document.getElementById('comment').value;
 
         if (author !== "" && comment !== "" ) {
-            this.eventListenerMethode();
+            this.eventListenerMethod();
         } else {
             alert('Veuillez remplir tous les champs correctement.');
         }
