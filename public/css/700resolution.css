@@ -89,3 +89,7 @@ td {
 .sousMenu a {
     font-size: 13px;
 }
+
+.alertDelete {
+    width: 80%;
+}
