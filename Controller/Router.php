@@ -4,69 +4,74 @@ namespace Controller;
 
 class Router
 {   
-    private $_postController;
+    //private $postCleanController;
     private $_commentController;
     private $_homeController;
 
     public function requete()
     {
+        //$options = [
+            //'id' => FILTER_VALIDATE_INT,
+        //];
+    $getClean = filter_var_array($_GET);
+        $postClean = filter_var_array($_POST);
         try {   
             // DETERMINE L'ACTION DE L'UTILISATEUR 
-            if (isset($_GET['objet'])) {
+            if (isset($getClean['objet'])) {
                 //AFFICHAGE DES BILLETS
-                if ($_GET['objet'] === 'post') {
+                if ($getClean['objet'] === 'post') {
                     $postController = new PostController();
                     $commentController = new CommentController();
-                    if (isset($_GET['action'])) {
+                    if (isset($getClean['action'])) {
                         // AJOUT D'UN POST
-                        if ($_GET['action'] === 'add') {
+                        if ($getClean['action'] === 'add') {
                             $postController->add();
                         // AFFICHAGE AVANT MODIF D'UN POST
-                        } elseif ($_GET['action'] === 'update' && isset($_GET['id'])) { 
-                            $postController->update($_GET['id']);
+                        } elseif ($getClean['action'] === 'update' && isset($getClean['id'])) { 
+                            $postController->update($getClean['id']);
                         // AFFICHAGE AVANT SUPPRESSION 
-                        } elseif ($_GET['action'] === 'delete' && isset($_GET['id'])) { 
-                            $postController->delete($_GET['id']);
+                        } elseif ($getClean['action'] === 'delete' && isset($getClean['id'])) { 
+                            $postController->delete($getClean['id']);
                         // AJOUT DE COMMENTAIRE
-                        } elseif ($_GET['action'] === 'addComment' && isset($_GET['id'])) {
-                            $commentController->add($_GET['id'], $_POST['author'], $_POST['comment']);
+                        } elseif ($getClean['action'] === 'addComment' && isset($getClean['id'])) {
+                            $commentController->add($getClean['id'], $postClean['author'], $postClean['comment']);
                         // AFFICHAGE AVANT SUPPRESSION D'UN COMMENTAIRE
-                        } elseif ($_GET['action'] === 'deleteComment' && isset($_GET['id'])) {
-                            $commentController->delete($_GET['id']);
+                        } elseif ($getClean['action'] === 'deleteComment' && isset($getClean['id'])) {
+                            $commentController->delete($getClean['id']);
                         // AFFICHAGE AVANT MODIFICATION D'UN COMMENTAIRE
-                        } elseif ($_GET['action'] === 'updateComment' && isset($_GET['id'])) {
-                            $commentController->update($_GET['id'], $_GET['postId']);
+                        } elseif ($getClean['action'] === 'updateComment' && isset($getClean['id'])) {
+                            $commentController->update($getClean['id'], $getClean['postId']);
                         // SIGNALEMENT D'UN COMMENTAIRE
-                        } elseif ($_GET['action'] === 'reportComment' && isset($_GET['id'])) {
-                            $commentController->report($_GET['id'], $_GET['postId']);
+                        } elseif ($getClean['action'] === 'reportComment' && isset($getClean['id'])) {
+                            $commentController->report($getClean['id'], $getClean['postId']);
                         // ENLEVER LE SIGNALEMENT D'UN COMMENTAIRE
-                        } elseif ($_GET['action'] === 'unReportComment' && isset($_GET['id'])) {
-                            $commentController->unReport($_GET['id']);
+                        } elseif ($getClean['action'] === 'unReportComment' && isset($getClean['id'])) {
+                            $commentController->unReport($getClean['id']);
                         }
                     //AFFICHAGE D'1 POST ET SES COMMENTAIRES
-                    } elseif (isset($_GET['id'])) {
-                        $postController->display($_GET['id']);
+                    } elseif (isset($getClean['id'])) {
+                        $postController->display($getClean['id']);
                     // AFFICHAGE DE TOUS LES POST
                     } else {
                         $postController->displayPosts();
                     }
                 //REDIRECTION SUR L'ADMIN
-                } elseif ($_GET['objet'] === 'admin') {
-                    $adminController = new AdminController;
-                    if (isset($_GET['action'])) {
-                        if ($_GET['action'] === 'login') {
+                } elseif ($getClean['objet'] === 'admin') {
+                    $adminController = new AdminController();
+                    if (isset($getClean['action'])) {
+                        if ($getClean['action'] === 'login') {
                             $adminController->login();
-                        } elseif ($_GET['action'] === 'destroy') { 
+                        } elseif ($getClean['action'] === 'destroy') { 
                             $adminController->destroy();
                         }
                     }
                     $adminController->display();
                 // PAGE CONTACT
-                } elseif ((isset($_GET['objet']) && ($_GET['objet'] === 'contact'))) {
+                } elseif ((isset($getClean['objet']) && ($getClean['objet'] === 'contact'))) {
                     $contactController = new ContactController;
                     $contactController->display();
                 //REDIRECTION SUR L'INDEX.PHP
-                } elseif (isset($_GET['objet']) && ($_GET['objet'] === 'home')) {
+                } elseif (isset($getClean['objet']) && ($getClean['objet'] === 'home')) {
 
                     header ("Location: index.php");
                 }
@@ -76,7 +81,7 @@ class Router
                 $homeController->displayhome();
             }
         //GESTION DES ERREURS
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             $errorMsg = $e->getMessage();
 
             require_once('../views/viewError.php');

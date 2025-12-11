@@ -30,7 +30,7 @@ class CommentController
         header('Location: index.php?objet=post&id=' . $postId);
     }
 
-    // AFFICHAGE AVANT SUPRESSION D'UN COMMENTAIRE
+    // AFFICHAGE AVANT SUPPRESSION D'UN COMMENTAIRE
     public function delete($commentId)
     {   if (isset($_SESSION['firstAdmin']) && $_SESSION['firstAdmin'] == 1 ) {
             if ($commentId >= 0 && !empty($_POST['author']) && !empty($_POST['comment'])) {
