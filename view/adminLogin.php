@@ -9,10 +9,10 @@
             Veuillez remplir les champs avec vos identifiants de connection.
         </p>
         <label for="email">Renseignez votre email : </label>
-        <input type="email" name="email" id="email" placeholder="Email" />
-        <br />
+        <input type="email" name="email" id="email" placeholder="Email" >
+        <br >
         <label for="password">Votre Mot de passe : </label>
-        <input type="password" name="password" id="password" placeholder="Mot de passe" />
+        <input type="password" name="password" id="password" placeholder="Mot de passe" >
         <button id="formButton" type="submit" name="submit" value="Se connecter">Se connecter</button>
     </form>
 </section>
